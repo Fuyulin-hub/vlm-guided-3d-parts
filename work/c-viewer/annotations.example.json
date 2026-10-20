@@ -1,0 +1,27 @@
+{
+  "object_id": "objaverse_710/sample_0042",
+  "method": "C",
+  "model": "Qwen3-VL + SAM2 + SegViGen",
+  "parts": [
+    {
+      "part_id": "PART_01",
+      "label": "Seat",
+      "geometry": "surface",
+      "confidence": 0.96,
+      "mask_score": 0.94,
+      "bbox_2d": [0.23, 0.41, 0.78, 0.69],
+      "centroid_3d": [0.0, 1.66, 0.0],
+      "mesh_names": ["seat_0"]
+    },
+    {
+      "part_id": "PART_02",
+      "label": "Backrest",
+      "geometry": "surface",
+      "confidence": 0.94,
+      "mask_score": 0.91,
+      "bbox_2d": [0.24, 0.16, 0.77, 0.47],
+      "centroid_3d": [0.0, 2.68, -0.82],
+      "mesh_names": ["back_0"]
+    }
+  ]
+}

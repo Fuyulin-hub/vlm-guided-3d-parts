@@ -1,0 +1,90 @@
+{
+  "root": "../..",
+  "manifest": "manifests/evaluation.csv",
+  "groups": ["assemblies", "solid_volume", "thin_fine_grained"],
+  "human_ratings": "ratings/human_ratings.csv",
+  "metrics": {
+    "background": 0,
+    "ignore_labels": [-1, 65535],
+    "boundary_tolerance_px": 2,
+    "part_iou_threshold": 0.5
+  },
+  "reference": {
+    "guidance": {"labels": "reference/D/{group}/{uid}/labels_uint16.png"},
+    "projection": {
+      "labels": "reference/D/{group}/{uid}/labels_uint16.png",
+      "camera": "cameras/reference/{group}/{uid}.json"
+    }
+  },
+  "methods": [
+    {
+      "key": "find3d", "name": "Find3D", "tables": [1, 3], "part_condition": "TO_CONFIRM",
+      "projection": {"labels": "projections/find3d/{group}/{uid}.npy", "camera": "cameras/find3d/{group}/{uid}.json"},
+      "run_components": [{"path": "logs/evaluation/find3d.jsonl", "phase": "pipeline"}]
+    },
+    {
+      "key": "partfield", "name": "PartField", "tables": [1, 3], "part_condition": "TO_CONFIRM",
+      "projection": {"labels": "projections/partfield/{group}/{uid}.npy", "camera": "cameras/partfield/{group}/{uid}.json"},
+      "run_components": [{"path": "logs/evaluation/partfield.jsonl", "phase": "pipeline"}]
+    },
+    {
+      "key": "p3sam", "name": "P3-SAM", "tables": [1, 3], "part_condition": "TO_CONFIRM",
+      "projection": {"labels": "projections/p3sam/{group}/{uid}.npy", "camera": "cameras/p3sam/{group}/{uid}.json"},
+      "run_components": [{"path": "logs/evaluation/p3sam.jsonl", "phase": "pipeline"}]
+    },
+    {
+      "key": "partsam", "name": "PartSAM", "tables": [1, 3], "part_condition": "TO_CONFIRM",
+      "projection": {"labels": "projections/partsam/{group}/{uid}.npy", "camera": "cameras/partsam/{group}/{uid}.json"},
+      "run_components": [{"path": "logs/evaluation/partsam.jsonl", "phase": "pipeline"}]
+    },
+    {
+      "key": "geosam2", "name": "GeoSAM2", "tables": [1, 3], "part_condition": "TO_CONFIRM",
+      "projection": {"labels": "projections/geosam2/{group}/{uid}.npy", "camera": "cameras/geosam2/{group}/{uid}.json"},
+      "run_components": [{"path": "logs/evaluation/geosam2.jsonl", "phase": "pipeline"}]
+    },
+    {
+      "key": "segvigen", "name": "SegviGen", "tables": [1, 3], "part_condition": "TO_CONFIRM",
+      "projection": {"labels": "projections/segvigen/{group}/{uid}.npy", "camera": "cameras/segvigen/{group}/{uid}.json"},
+      "run_components": [{"path": "logs/evaluation/segvigen.jsonl", "phase": "pipeline"}]
+    },
+    {
+      "key": "sam2", "name": "Automatic SAM2", "tables": [2],
+      "guidance": {"labels": "masks/B/{group}/{uid}/labels_uint16.png"},
+      "projection": {"labels": "projections/B/{group}/{uid}.npy", "camera": "cameras/B/{group}/{uid}.json"}
+    },
+    {
+      "key": "box_point", "name": "Qwen-SAM2 (box + point)", "tables": [2],
+      "guidance": {"labels": "masks/YOUR_V4_SUFFIX/{group}/{uid}/labels_uint16.png"},
+      "projection": {"labels": "projections/box_point/{group}/{uid}.npy", "camera": "cameras/box_point/{group}/{uid}.json"}
+    },
+    {
+      "key": "single_positive", "name": "Ours w/ single positive point", "tables": [2],
+      "guidance": {"labels": "masks/single_positive/{group}/{uid}/labels_uint16.png"},
+      "projection": {"labels": "projections/single_positive/{group}/{uid}.npy", "camera": "cameras/single_positive/{group}/{uid}.json"}
+    },
+    {
+      "key": "no_negative", "name": "Ours w/o negative points", "tables": [2],
+      "guidance": {"labels": "masks/no_negative/{group}/{uid}/labels_uint16.png"},
+      "projection": {"labels": "projections/no_negative/{group}/{uid}.npy", "camera": "cameras/no_negative/{group}/{uid}.json"}
+    },
+    {
+      "key": "no_feedback", "name": "Ours w/o feedback refinement", "tables": [2],
+      "guidance": {"labels": "masks/no_feedback/{group}/{uid}/labels_uint16.png"},
+      "projection": {"labels": "projections/no_feedback/{group}/{uid}.npy", "camera": "cameras/no_feedback/{group}/{uid}.json"}
+    },
+    {
+      "key": "no_point_fusion", "name": "Ours w/o point-aware fusion", "tables": [2],
+      "guidance": {"labels": "masks/no_point_fusion/{group}/{uid}/labels_uint16.png"},
+      "projection": {"labels": "projections/no_point_fusion/{group}/{uid}.npy", "camera": "cameras/no_point_fusion/{group}/{uid}.json"}
+    },
+    {
+      "key": "ours", "name": "Ours", "tables": [1, 2, 3], "part_condition": "Qwen3-VL spatial prompts",
+      "guidance": {"labels": "masks/YOUR_ACTUAL_V5_SUFFIX/{group}/{uid}/labels_uint16.png"},
+      "projection": {"labels": "projections/ours/{group}/{uid}.npy", "camera": "cameras/ours/{group}/{uid}.json"},
+      "run_components": [
+        {"path": "logs/YOUR_ACTUAL_V5_SUFFIX/YOUR_GUIDANCE_RUN_results.jsonl", "phase": "guidance"},
+        {"path": "logs/evaluation/ours_segmentation_and_export.jsonl", "phase": "segmentation"}
+      ]
+    }
+  ]
+}

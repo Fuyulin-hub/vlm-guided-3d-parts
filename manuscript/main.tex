@@ -1,0 +1,58 @@
+% !TeX program = xelatex
+% Chinese working draft, not a certified IJCV submission template.
+\documentclass[UTF8,fontset=none,a4paper,10pt,twocolumn]{ctexart}
+\IfFontExistsTF{SimSun}{%
+  \setCJKmainfont[BoldFont=SimHei,ItalicFont=KaiTi]{SimSun}
+  \setCJKsansfont{Microsoft YaHei}
+  \setCJKmonofont{FangSong}
+}{%
+  \setCJKmainfont[BoldFont=FandolSong-Bold,ItalicFont=FandolKai-Regular]{FandolSong-Regular}
+  \setCJKsansfont{FandolHei-Regular}
+  \setCJKmonofont{FandolFang-Regular}
+}
+\usepackage[margin=18mm,columnsep=6mm]{geometry}
+\usepackage{graphicx,booktabs,amsmath,amssymb,tabularx,xcolor}
+\newcommand{\citep}[1]{\cite{#1}}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[unicode,hidelinks]{hyperref}
+\hypersetup{pdftitle={面向生成式三维资产的视觉语言引导部件分割与语义标注},pdfauthor={作者待填写}}
+\definecolor{draftnote}{HTML}{8A4D20}
+\definecolor{placeholder}{HTML}{697682}
+\newcommand{\TBD}[1]{{\color{draftnote}\textbf{【待补：#1】}}}
+\newcommand{\blankfigure}[3]{%
+  \fcolorbox{placeholder}{white}{%
+    \begin{minipage}[c][#1][c]{0.94\linewidth}
+      \centering\color{placeholder}\bfseries #2\par\vspace{4mm}
+      \normalfont\small #3
+    \end{minipage}}}
+\ctexset{section={format=\large\bfseries,beforeskip=1.1ex,afterskip=.7ex},
+subsection={format=\normalsize\bfseries,beforeskip=.9ex,afterskip=.5ex}}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{1pt}
+\setlength{\textfloatsep}{12pt plus 2pt minus 2pt}
+\setlength{\dbltextfloatsep}{12pt plus 2pt minus 2pt}
+\setcounter{topnumber}{4}
+\setcounter{dbltopnumber}{3}
+\renewcommand{\topfraction}{.92}
+\renewcommand{\dbltopfraction}{.92}
+\renewcommand{\textfraction}{.07}
+\renewcommand{\floatpagefraction}{.75}
+\renewcommand{\dblfloatpagefraction}{.75}
+\emergencystretch=1em
+\title{面向生成式三维资产的\\视觉语言引导部件分割与语义标注}
+\author{作者姓名、单位与通讯信息待填写}
+\date{中文工作初稿\quad 2026 年 10 月 19 日}
+\begin{document}
+\maketitle
+\input{sections/00_abstract}
+\input{sections/01_introduction}
+\input{sections/02_related_work}
+\input{sections/03_method}
+\input{sections/04_experiments}
+\input{sections/05_conclusion}
+\clearpage
+\bibliographystyle{unsrt}
+\bibliography{references}
+\clearpage
+\input{sections/appendix}
+\end{document}

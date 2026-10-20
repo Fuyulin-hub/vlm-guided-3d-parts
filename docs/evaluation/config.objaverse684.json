@@ -1,0 +1,54 @@
+{
+  "root": "/data2/codefile/fuyulin/experiments",
+  "manifest": "objaverse_684/manifest_frozen.csv",
+  "groups": ["assemblies", "solid_volume", "thin_fine_grained"],
+  "expected_group_counts": {"assemblies": 220, "solid_volume": 232, "thin_fine_grained": 232},
+  "metrics": {"background": 0, "ignore_labels": [-1, 65535], "boundary_tolerance_px": 2, "part_iou_threshold": 0.5},
+  "reference": {
+    "guidance": {"labels": "human_fixed_710/masks/C_qwen_sam2/{group}/{uid}/labels_uint16.png"}
+  },
+  "methods": [
+    {"key": "find3d", "name": "Find3D", "tables": [1, 3], "part_condition": "TBD"},
+    {"key": "partfield", "name": "PartField", "tables": [1, 3], "part_condition": "TBD"},
+    {"key": "p3sam", "name": "P3-SAM", "tables": [1, 3], "part_condition": "TBD"},
+    {"key": "partsam", "name": "PartSAM", "tables": [1, 3], "part_condition": "TBD"},
+    {"key": "geosam2", "name": "GeoSAM2", "tables": [1, 3], "part_condition": "TBD"},
+    {"key": "segvigen", "name": "SegviGen", "tables": [1, 3], "part_condition": "TBD"},
+    {
+      "key": "sam2", "name": "Automatic SAM2", "tables": [2],
+      "guidance": {
+        "labels": "objaverse_684/guidance/B_sam2/{group}/{uid}.png",
+        "palette": "/data2/codefile/fuyulin/1trellis2/segvigen_inputs/colors_pure.json",
+        "palette_format": "index_array", "label_semantics": "palette_index"
+      },
+      "measurement_scope": "segmentation_only",
+      "run_components": [{
+        "path": "objaverse_684/logs/abc_events.jsonl", "phase": "segmentation",
+        "filters": {"stage": "segvigen", "arm": "B_sam2"},
+        "time_key": "seconds", "memory_key": "peak_allocated_bytes", "memory_unit": "bytes"
+      }]
+    },
+    {
+      "key": "box_point", "name": "Qwen-SAM2 (box + point)", "tables": [2],
+      "guidance": {
+        "labels": "objaverse_684/guidance/C_v4_exhaustive_box_point/{group}/{uid}.png",
+        "palette_annotation": "objaverse_684/annotations/C_v4_exhaustive_box_point/{group}/{uid}.json",
+        "label_semantics": "part_id"
+      }
+    },
+    {"key": "single_positive", "name": "Ours w/ single positive point", "tables": [2]},
+    {"key": "no_negative", "name": "Ours w/o negative points", "tables": [2]},
+    {"key": "no_feedback", "name": "Ours w/o feedback refinement", "tables": [2]},
+    {"key": "no_point_fusion", "name": "Ours w/o point-aware fusion", "tables": [2]},
+    {
+      "key": "ours", "name": "Ours", "tables": [1, 2, 3], "part_condition": "Qwen3-VL spatial prompts",
+      "guidance": {
+        "annotation": "objaverse_684/annotations/C_v5_full/{group}/{uid}.json",
+        "labels_key": "final_map.labels_path", "label_semantics": "part_id"
+      },
+      "run_components": [{
+        "path": "objaverse_684/logs/C_v5_full/C_v5_full_r01_results.jsonl", "phase": "guidance"
+      }]
+    }
+  ]
+}

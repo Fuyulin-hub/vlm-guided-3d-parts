@@ -1,0 +1,22 @@
+\begin{table*}[t]
+\caption{效率与可靠性。端到端耗时包含各方法所需的预处理、提示生成、分割与后处理；共享 TRELLIS.2 资产生成成本单列。失败率以全部测试尝试为分母，坍塌率以成功导出的有效结果为分母。硬件、计时协议和坍塌判据尚待冻结，所有结果为 TBD。}
+\label{tab:efficiency}
+\centering\small
+\begin{tabularx}{\textwidth}{@{}X c c c c@{}}
+\toprule
+方法 & \shortstack{总耗时\,(s/对象) $\downarrow$} & \shortstack{峰值显存\,(GB) $\downarrow$} & \shortstack{运行失败率\,(\%) $\downarrow$} & \shortstack{分割坍塌率\,(\%) $\downarrow$}\\
+\midrule
+Find3D & TBD & TBD & TBD & TBD\\
+PartField & TBD & TBD & TBD & TBD\\
+P3-SAM & TBD & TBD & TBD & TBD\\
+PartSAM & TBD & TBD & TBD & TBD\\
+GeoSAM2 & TBD & TBD & TBD & TBD\\
+SegviGen & TBD & TBD & TBD & TBD\\
+本文方法 & TBD & TBD & TBD & TBD\\
+\bottomrule
+\end{tabularx}
+\vspace{2pt}
+\begin{minipage}{\textwidth}\footnotesize
+注：本文方法计入 Qwen、SAM2、反馈和 SegViGen；GeoSAM2 的共享引导成本不得漏计。若方法需要逐对象优化，其优化时间计入总耗时。缺测项不是零；历史版本的成功率不替代本版结果。
+\end{minipage}
+\end{table*}

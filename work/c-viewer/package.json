@@ -1,0 +1,9 @@
+{
+  "name": "partscope-semantic-viewer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test *.test.mjs",
+    "start": "node serve.cjs"
+  }
+}

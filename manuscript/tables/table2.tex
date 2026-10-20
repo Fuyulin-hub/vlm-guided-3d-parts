@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\caption{空间提示、反馈和融合的消融实验。前三项评价三维推理之前的二维引导，最后一项评价最终三维输出的固定视角投影。前两行为比较基线，随后四行为相对完整方法的组件消融，最后一行为完整方法；全表尚无测量结果。}
+\label{tab:ablation}
+\centering\small
+\setlength{\tabcolsep}{7pt}
+\begin{tabularx}{\textwidth}{@{}X c c c c@{}}
+\toprule
+配置 & \shortstack{二维匹配 mIoU\,(\%) $\uparrow$} & \shortstack{二维 BF1\,(\%) $\uparrow$} & \shortstack{二维部件 F1@0.5\,(\%) $\uparrow$} & \shortstack{投影 mIoU\,(\%) $\uparrow$}\\
+\midrule
+Automatic SAM2 & TBD & TBD & TBD & TBD\\
+Qwen--SAM2（框＋点） & TBD & TBD & TBD & TBD\\
+本文方法：仅单个正点 & TBD & TBD & TBD & TBD\\
+本文方法：移除负点 & TBD & TBD & TBD & TBD\\
+本文方法：移除反馈修正 & TBD & TBD & TBD & TBD\\
+本文方法：移除点感知融合 & TBD & TBD & TBD & TBD\\
+本文完整方法 & TBD & TBD & TBD & TBD\\
+\bottomrule
+\end{tabularx}
+\vspace{2pt}
+\begin{minipage}{\textwidth}\footnotesize
+注：“仅单个正点”保留框、负点、反馈及融合，其与独立框＋点基线的差异必须由配置清单说明。移除点感知融合时的替代规则尚需固定；若同时删除多个操作，结果只能解释为该组合模块的贡献。匹配基于区域重叠，不按调色板 RGB 值一一对应。
+\end{minipage}
+\end{table*}
