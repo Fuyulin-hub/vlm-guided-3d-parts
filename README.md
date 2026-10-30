@@ -2,7 +2,7 @@
 
 Research workspace for visual-language-guided 2D spatial prompting, 3D part segmentation, and English part annotations for generated 3D assets.
 
-This repository contains the current source snapshot, evaluation tools, a local GLB viewer, tests, and a Chinese manuscript draft. Experimental results are still being collected; placeholder table cells are not measured results.
+This repository contains the guidance and evaluation code, a local GLB viewer, tests, and the current IJCV English manuscript. The earlier Chinese draft is retained. Unmeasured table entries remain marked TBD.
 
 ## Contents
 
@@ -12,7 +12,8 @@ This repository contains the current source snapshot, evaluation tools, a local 
 | `tests/` | CPU checks for metrics, file adapters, projection, and guidance postprocessing |
 | `docs/evaluation/` | Evaluation protocol and configuration templates |
 | `work/c-viewer/` | Local Three.js viewer and semantic color correspondence tools |
-| `manuscript/` | Editable Chinese LaTeX draft and figure inputs |
+| `manuscript/ijcv_english/` | Current Springer Nature LaTeX manuscript, PDF, bibliography, and figure inputs |
+| `manuscript/` | Earlier Chinese draft and author-supplied template files |
 
 Datasets, model weights, generated GLB/VXZ files, raw run logs, credentials, local caches, and downloaded experiment assets are excluded from Git. Paths in experiment-specific configurations need to be adapted to the machine running the experiments.
 
@@ -83,7 +84,11 @@ Validation on the Windows packaging host (2026-10-20): 55 viewer unit tests pass
 
 ## Manuscript
 
-Open `manuscript/main.tex` with a XeLaTeX-capable editor. This is a Chinese working draft, with English part names, rather than a finalized IJCV submission package. See `manuscript/README.md` for build instructions and outstanding experimental evidence.
+The current English source is [manuscript/ijcv_english/main.tex](manuscript/ijcv_english/main.tex), with the compiled [PDF](manuscript/ijcv_english/main.pdf). Select XeLaTeX when compiling it. The project includes the Springer Nature class and bibliography style plus all four manuscript figure PDFs.
+
+The latest revision updates the three supplied external-baseline summaries and includes six A/B/C/D comparisons rendered from 24 real GLB outputs in Figure 4. The chair and rod use the display orientations approved by the author. The manuscript states the evaluation coverage and aggregation for each comparison. Missing measurements and author declarations remain explicit. See [the English manuscript README](manuscript/ijcv_english/README.md) for build details and [QA notes](manuscript/ijcv_english/QA.md) for the current checks.
+
+The earlier Chinese working draft remains at `manuscript/main.tex`; its instructions are in `manuscript/README.md`.
 
 ## Version scope
 

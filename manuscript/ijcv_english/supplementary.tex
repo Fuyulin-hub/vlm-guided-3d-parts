@@ -1,0 +1,65 @@
+% !TeX program = xelatex
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=2.4cm]{geometry}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs,array,tabularx,multirow}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\definecolor{DraftText}{HTML}{775326}
+\newcommand{\pending}[1]{{\color{DraftText}\textit{[#1]}}}
+\newcommand{\unmeasured}{\textcolor{DraftText}{TBD}}
+\renewcommand{\thetable}{S\arabic{table}}
+\renewcommand{\thesection}{S\arabic{section}}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\setlength{\parskip}{0.4em}
+
+\title{\vspace{-1.2cm}\large Supplementary Material\\[0.3em]
+Language-Guided Spatial Prompting For Part Segmentation Of Generated 3D Assets}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+\vspace{-1.4cm}
+
+\section{Structural-Group And Part-Size Analysis}
+\label{sec:s1}
+
+This supplement reports the per-stratum breakdown summarized in Section~4.8 of the main paper. The three structural groups expose different interactions between proposals and region assignment. Assemblies contain neighboring components with independent identities. Solid-volume objects can be dominated by a large housing region, while thin structures offer limited pixel support and are sensitive to clipping and overlap ownership. All scores are computed at the object level against the designated standard reference, with a boundary tolerance of two pixels and a part-match threshold of IoU 0.5. Each object first contributes its own mean, and a stratum value is the equal-weight mean over the three structural groups; empty groups are left blank rather than imputed.
+
+Stratification is applied after the whole-object match is fixed, so a part is never matched separately inside each stratum. Object-count strata use the reference part count per object, with bins of one to five, six to ten, and eleven or more parts. Part-size strata use the reference part area relative to the foreground, with bins of at most 1\%, more than 1\% and at most 5\%, and more than 5\%. Because the macro average of the eleven-or-more stratum is undefined, the solid-volume group containing no such objects contributes no value to that row; the assemblies-only value is reported in the notes below the table.
+
+\begin{table}[t]
+\caption{Structural difficulty and part-size analysis on the 500 paired objects, comparing automatic SAM2 guidance (B) with the proposed assembled guidance (C). Differences are C minus B in percentage points. The macro rows weight the three structural groups equally. The eleven-or-more stratum is blank at the macro level because the solid-volume group has no such objects; within assemblies alone, that stratum changes by $-1.56$ mIoU, $-3.36$ BF1, and $-1.87$ recall points.}
+\label{tab:strata}
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}l l r c c c c c c c c c@{}}
+\toprule
+Panel & Stratum & $N$ & \shortstack{B\\mIoU} & \shortstack{C\\mIoU} & \shortstack{$\Delta$\\mIoU} & \shortstack{B\\BF1} & \shortstack{C\\BF1} & \shortstack{$\Delta$\\BF1} & \shortstack{B\\Rec} & \shortstack{C\\Rec} & \shortstack{$\Delta$\\Rec}\\
+\midrule
+Structural group & Assemblies & 154 & 37.12 & 42.60 & $+5.48$ & 34.80 & 34.62 & $-0.19$ & 38.49 & 44.57 & $+6.08$\\
+ & Solid volume & 181 & 50.50 & 56.35 & $+5.85$ & 49.42 & 49.23 & $-0.19$ & 51.15 & 52.15 & $+1.00$\\
+ & Thin / fine-grained & 165 & 46.75 & 55.63 & $+8.88$ & 49.98 & 56.75 & $+6.76$ & 48.75 & 58.38 & $+9.63$\\
+\midrule
+Object part count & 1--5 parts & 327 & 53.49 & 61.92 & $+8.43$ & 54.55 & 56.57 & $+2.01$ & 55.61 & 62.89 & $+7.28$\\
+ & 6--10 parts & 107 & 34.91 & 44.47 & $+9.55$ & 31.90 & 37.81 & $+5.91$ & 35.15 & 46.63 & $+11.48$\\
+ & $\geq$11 parts & 66 & --- & --- & --- & --- & --- & --- & --- & --- & ---\\
+\midrule
+Part area & Small ($\leq$1\%) & 158 & 13.38 & 16.28 & $+2.90$ & 20.27 & 20.92 & $+0.65$ & 11.64 & 14.25 & $+2.61$\\
+ & Medium (1--5\%) & 261 & 23.87 & 45.31 & $+21.44$ & 32.50 & 45.19 & $+12.69$ & 22.12 & 47.20 & $+25.07$\\
+ & Large ($>$5\%) & 500 & 54.01 & 59.06 & $+5.05$ & 49.98 & 50.73 & $+0.75$ & 56.42 & 59.54 & $+3.12$\\
+\midrule
+Overall & All objects & 500 & 44.79 & 51.53 & $+6.74$ & 44.74 & 46.87 & $+2.13$ & 46.13 & 51.70 & $+5.57$\\
+\bottomrule
+\end{tabular*}
+\end{table}
+
+\paragraph{Reading the table.}
+The structural-group panel shows that the largest macro gain occurs on thin and fine-grained objects, where both recall and boundary agreement improve substantially. Solid-volume objects gain mainly in matched region overlap rather than in boundary agreement, consistent with correction of large merged regions rather than narrow contour placement. The object-count panel shows gains that persist into the six-to-ten-part regime, while the eleven-or-more regime reverses within assemblies; a finer automatic partition can retain an advantage when a reference object contains many small adjacent components. The part-size panel localizes the gain: medium parts occupying one to five percent of the foreground improve by 21.44 mIoU points, whereas parts at or below one percent improve by 2.90 points and remain the weakest stratum in absolute terms for both conditions.
+
+\paragraph{Scope.}
+The stratified values describe the same 500 paired objects used in the main comparison and add no new measurements. They are consistent with the four-table structure of the main paper and do not modify the primary claims. Scores for objects held at the camera-alignment gate are absent from the projection metrics but present here, because this analysis is computed in the source view and does not depend on the projection gate.
+
+\end{document}

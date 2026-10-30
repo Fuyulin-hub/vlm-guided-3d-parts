@@ -26,6 +26,21 @@
 /manuscript/*.xdv
 /manuscript/*.synctex.gz
 
+# Local handoff notes, nested TeX build products, and superseded archives.
+/docs/PROJECT_HANDOFF.md
+/manuscript/ijcv_english/build/
+/manuscript/ijcv_english/source.zip
+/manuscript/ijcv_english/paper_ijcv_draft.pdf
+**/*.aux
+**/*.bbl
+**/*.blg
+**/*.log
+**/*.out
+**/*.xdv
+**/*.synctex.gz
+**/*.fls
+**/*.fdb_latexmk
+
 **/__pycache__/
 **/.pytest_cache/
 **/node_modules/
