@@ -5,11 +5,15 @@ const { chromium } = require('C:/Users/ASUS/.cache/codex-runtimes/codex-primary-
 (async () => {
   const browser = await chromium.launch({headless: true, executablePath: 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe'});
   try {
-    for (const [source, name, width, height] of [
+    for (let [source, name, width, height] of [
       ['fig1_motivation.svg', 'fig1_motivation', 2572, 777],
       ['fig2_pipeline.drawio.svg', 'fig2_pipeline', 2471, 1108],
     ]) {
       let svg = fs.readFileSync(path.join(__dirname, source), 'utf8');
+      if (name === 'fig2_pipeline') {
+        const dims = svg.match(/viewBox="([^"]+)"/)[1].split(/\s+/).map(Number);
+        width = dims[2]; height = dims[3];
+      }
       svg = svg.replace(/<\?xml[^>]*>/g, '').replace(/<!DOCTYPE[\s\S]*?>/g, '');
       const page = await browser.newPage({ viewport: {width, height}, deviceScaleFactor: 1 });
       await page.setContent(`<html><head><style>@page{size:${width}px ${height}px;margin:0}html,body{margin:0;padding:0;width:${width}px;height:${height}px;background:white}svg{display:block;width:${width}px;height:${height}px}</style></head><body>${svg}</body></html>`, {waitUntil: 'load'});

@@ -1,4 +1,8 @@
 * text=auto
+.gitignore text eol=lf
+.gitattributes text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
 *.py text eol=lf
 *.mjs text eol=lf
 *.cjs text eol=lf
@@ -17,3 +21,9 @@
 *.zip binary
 *.eps binary
 *.svg text eol=lf
+# Preserve the original source digests when cloning on Windows or Linux.
+reproducibility/table2_pilot5/source/* -text -whitespace
+reproducibility/table2_pilot5/source_hashes.json -text
+scripts/run_qwen_sam2_guidance_v4.py -text -whitespace
+# Generated SVG path wrapping intentionally contains trailing separators.
+manuscript/ijcv_english/fig_method_profile_heatmap_single_column.svg -whitespace

@@ -1,95 +1,83 @@
 # VLM-Guided 3D Parts
 
-Research workspace for visual-language-guided 2D spatial prompting, 3D part segmentation, and English part annotations for generated 3D assets.
+Research code for language-guided 2D part masks, their use as guidance for a frozen 3D segmentation backend, and evaluation of the resulting projections.
 
-This repository contains the guidance and evaluation code, a local GLB viewer, tests, and the current IJCV English manuscript. The earlier Chinese draft is retained. Unmeasured table entries remain marked TBD.
+Qwen3-VL proposes part names, boxes, and points; SAM2 predicts masks; a part-level audit permits at most one retry. Point-aware assembly combines selected masks into integer labels and a colored guidance image. The downstream backend used in the experiments is SegViGen.
 
-## Contents
+## Repository map
 
-| Directory | Purpose |
-| --- | --- |
-| `scripts/` | Guidance prototype, GLB projection, label metrics, table evaluators, and annotation conversion |
-| `tests/` | CPU checks for metrics, file adapters, projection, and guidance postprocessing |
-| `docs/evaluation/` | Evaluation protocol and configuration templates |
-| `work/c-viewer/` | Local Three.js viewer and semantic color correspondence tools |
-| `manuscript/ijcv_english/` | Current Springer Nature LaTeX manuscript, PDF, bibliography, and figure inputs |
-| `manuscript/` | Earlier Chinese draft and author-supplied template files |
+| Location | Contents |
+|---|---|
+| [scripts/](scripts/README.md) | Guidance, fusion, annotation conversion, projection, and metrics |
+| [docs/GUIDANCE.md](docs/GUIDANCE.md) | Input format, configuration dry run, and GPU command |
+| [docs/evaluation/](docs/evaluation/README.md) | Metrics, camera requirements, and aggregation |
+| [reproducibility/table2_pilot5/](reproducibility/table2_pilot5/README.md) | Original five-object ablation source and SHA-256 hashes |
+| [tests/](tests/) | Synthetic CPU checks and a separate EGL rendering test |
+| [work/c-viewer/](work/c-viewer/) | Local Three.js viewer and semantic color correspondence |
+| [manuscript/ijcv_english/](manuscript/ijcv_english/README.md) | Current English LaTeX manuscript, figures, bibliography, and PDF |
 
-Datasets, model weights, generated GLB/VXZ files, raw run logs, credentials, local caches, and downloaded experiment assets are excluded from Git. Paths in experiment-specific configurations need to be adapted to the machine running the experiments.
+This is a source release, not a complete archive of server runs. The dataset, weights, per-object predictions, evaluation manifests, and frozen camera snapshots are not distributed here. Historical paths must be replaced explicitly. See [reproducibility scope](docs/REPRODUCIBILITY.md) before attributing a paper result to this checkout.
 
-## Annotation format
+## Quick start: CPU checks
 
-English part names use `label`; numeric region identities use `label_id`:
+Use Python 3.10 or later in a separate environment:
 
-```json
-{
-  "parts": [
-    {
-      "part_id": "part_05",
-      "label_id": 4,
-      "label": "Front wheel",
-      "color": [199, 229, 22]
-    }
-  ]
-}
-```
+~~~bash
+python -m venv .venv
+# Linux/macOS: source .venv/bin/activate
+# Windows PowerShell: .\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements-test.txt
+python -m pytest tests -k "not egl_flat_render" -q
+~~~
 
-The viewer accepts legacy `label_en` inputs, normalizes them to `label`, and removes Chinese-name fields from exported part records. Name conversion preserves label IDs and does not rerun segmentation.
+These checks do not load models or produce experimental scores. The excluded EGL test requires a working Linux/OpenGL environment. GPU inference and full-dataset reproduction are separate validation tasks.
 
-```bash
-python scripts/english_only_annotations.py \
-  --input /path/to/original/annotations \
-  --output /path/to/english/annotations
-```
+## Generate 2D guidance
 
-Use a separate output directory. If a provenance record declares the annotation file checksum, retain the transformation history and update that checksum for the exported JSON.
+The maintained entry point is `scripts/run_qwen_sam2_guidance_v5_feedback.py`. Its original V4 helper is included.
 
-## Evaluate existing results
+~~~bash
+python -m pip install -r scripts/requirements-guidance-cpu.txt
+python scripts/run_qwen_sam2_guidance_v5_feedback.py \
+  --experiment-root /path/to/new/run \
+  --manifest /path/to/manifest.csv \
+  --run-id config-check --output-suffix C_check --dry-run
+~~~
 
-```bash
+The manifest contains `group`, `uid`, and `input_rgba`. A dry run checks selection and freezes source/configuration hashes; it does not validate every image or checkpoint. Full inference needs Qwen3-VL, SAM2, local checkpoints, a palette, and a compatible CUDA environment. See [GUIDANCE.md](docs/GUIDANCE.md). This driver does not launch SegViGen.
+
+## Score existing label maps
+
+~~~bash
 python -m pip install -r scripts/requirements-evaluation.txt
 python scripts/eval_table2.py \
-  --config docs/evaluation/config.example.json \
-  --root /path/to/experiments \
-  --out /path/to/evaluation-output
-```
+  --config /path/to/evaluation.json \
+  --root /path/to/experiment \
+  --out /path/to/new/evaluation-output
+~~~
 
-Configure the manifest and label sources first. The evaluators read existing outputs and do not launch model inference. See `docs/evaluation/README.md` for metrics, missing-data handling, camera requirements, and the other table entry points.
+Copy and adapt [the configuration template](docs/evaluation/config.example.json) first. Set `boundary_tolerance_px` explicitly: current primary manuscript columns use **5 px**, while archived and sensitivity analyses also contain **2 px**. The template retains its historical 2 px default.
 
-## Guidance prototype dependencies
-
-`scripts/run_qwen_sam2_guidance_v5_feedback.py` contains the V5 guidance and fusion driver. Full inference additionally requires the original `run_qwen_sam2_guidance_v4.py` helper, Qwen3-VL and SAM2 installations and checkpoints, OpenCV, and a configured CUDA environment. The helper and pretrained weights are not included in this snapshot. The annotation output format was updated after the currently running experiment; preserve each run's original source and configuration hashes when interpreting results.
+The metrics module reports matched mIoU, Boundary F1, and Part F1@0.5, with GT-best IoU as a separate diagnostic. The older table CLI exports group-macro summaries and also stores object means in JSON; its filenames do not correspond to the current manuscript table numbering. See [evaluation instructions](docs/evaluation/README.md).
 
 ## Local viewer
 
-```bash
+With Node.js installed:
+
+~~~bash
 cd work/c-viewer
-node serve.cjs
-```
+npm test
+npm start
+~~~
 
-Open `http://127.0.0.1:4173/` and load a GLB with its corresponding annotations and provenance record. Bundled Three.js sources include their MIT license. The real firetruck asset is excluded from Git, so the optional sample button requires restoring the local asset bundle first. Synthetic tests remain available.
+Open `http://127.0.0.1:4173/` and load your GLB, annotations, and provenance record. Unit tests use synthetic assets. `npm run test:browser` runs a separate integration suite whose Playwright/browser paths need configuration.
 
-The viewer builds conservative color correspondences. Its color-match coverage is not a segmentation accuracy score; unresolved regions remain unassigned. See the viewer README for limitations and export details.
+English part names use `label`; region identities use `label_id`. Colors encode local partitions, not a cross-object semantic vocabulary. Viewer color coverage is not segmentation accuracy.
 
-## Tests
+## Manuscript and evaluation scope
 
-```bash
-python -m pip install pytest
-python -m pytest tests/test_paper_table_metrics.py tests/test_english_only_annotations.py
-```
+The current English [source](manuscript/ijcv_english/main.tex) and [PDF](manuscript/ijcv_english/main.pdf) use one main-text document with eight tables and nine figures. Compile with XeLaTeX and BibTeX. The earlier Chinese draft under `manuscript/` is not the current submission.
 
-Additional guidance checks require OpenCV. Viewer unit tests use Node.js; browser integration checks additionally require Playwright and a browser. Their current local browser paths need to be adjusted on other machines.
+When the scoring reference is also supplied as D-arm guidance, D measures reference-conditioned consistency, not performance against an input-independent ground truth. Projected scores evaluate the observed view, not full-surface 3D segmentation accuracy. Sample counts and aggregation are identified separately for each analysis.
 
-Validation on the Windows packaging host (2026-10-20): 55 viewer unit tests passed; the full Python suite had 70 passes and 4 failures. Three projection tests failed at `os.fsync` on a read-only temporary file descriptor; the EGL rendering test lacked `trimesh`. Projection additionally requires `trimesh`, `pyrender`/OpenGL, and the intended Linux/EGL environment (the runner uses `fcntl`). These limitations are retained in this source snapshot, not reported as a fully passing suite. GPU inference and browser integration were not rerun for this packaging check.
-
-## Manuscript
-
-The current English source is [manuscript/ijcv_english/main.tex](manuscript/ijcv_english/main.tex), with the compiled [PDF](manuscript/ijcv_english/main.pdf). Select XeLaTeX when compiling it. The project includes the Springer Nature class and bibliography style plus all four manuscript figure PDFs.
-
-The latest revision updates the three supplied external-baseline summaries and includes six A/B/C/D comparisons rendered from 24 real GLB outputs in Figure 4. The chair and rod use the display orientations approved by the author. The manuscript states the evaluation coverage and aggregation for each comparison. Missing measurements and author declarations remain explicit. See [the English manuscript README](manuscript/ijcv_english/README.md) for build details and [QA notes](manuscript/ijcv_english/QA.md) for the current checks.
-
-The earlier Chinese working draft remains at `manuscript/main.tex`; its instructions are in `manuscript/README.md`.
-
-## Version scope
-
-This initial repository captures the local working source. It is not a verified snapshot of every script currently running on the server. Preserve server run IDs, actual source hashes, model configurations, and input identities separately before assigning any commit to a completed experiment.
+[RELEASE_QA.md](docs/RELEASE_QA.md) records checks run for this revision. [THIRD_PARTY.md](docs/THIRD_PARTY.md) describes upstream components. No project-wide redistribution license is asserted by this upload.

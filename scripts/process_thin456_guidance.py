@@ -317,8 +317,8 @@ def main():
     if args.source_only:
         make_source_sheets(args.source,inventory_sources(args.source,PREFERENCES),args.output/"review")
         return
-    source_palette_path=ROOT/"downloads/part_palette_30_high_contrast_20261021.json"
-    bc_palette_path=ROOT/"downloads/colors_pure_bc_20261022.json"
+    source_palette_path=ROOT/"configs/palettes/part_palette_30_high_contrast_20261021.json"
+    bc_palette_path=ROOT/"configs/palettes/colors_pure_bc_20261022.json"
     source_palette={int(entry["label_id"]):tuple(entry["rgb"]) for entry in json.loads(source_palette_path.read_text(encoding="utf-8"))["colors"]}
     target_colors=[tuple(entry[:3]) for entry in json.loads(bc_palette_path.read_text(encoding="utf-8"))[1:]]
     audit_path=args.output/"source_pairing_audit.json"

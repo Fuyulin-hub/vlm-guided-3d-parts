@@ -11,8 +11,8 @@ ROOT=Path(__file__).resolve().parents[1]
 
 
 def palettes():
-    source={int(x["label_id"]):tuple(x["rgb"]) for x in json.loads((ROOT/"downloads/part_palette_30_high_contrast_20261021.json").read_text())["colors"]}
-    target=[tuple(x[:3]) for x in json.loads((ROOT/"downloads/colors_pure_bc_20261022.json").read_text())[1:]]
+    source={int(x["label_id"]):tuple(x["rgb"]) for x in json.loads((ROOT/"configs/palettes/part_palette_30_high_contrast_20261021.json").read_text())["colors"]}
+    target=[tuple(x[:3]) for x in json.loads((ROOT/"configs/palettes/colors_pure_bc_20261022.json").read_text())[1:]]
     return source,target
 
 

@@ -209,8 +209,8 @@ def main():
     unresolved={row["uid"] for row in old["per_uid"] if row["uid"][:8] in UNRESOLVED_PREFIXES}
     if len(reviewed)!=27 or len(unresolved)!=2:
         raise ValueError("reviewed source inventory does not match approved 27 + 2 choices")
-    source_path=ROOT/"downloads/part_palette_30_high_contrast_20261021.json"
-    bc_path=ROOT/"downloads/colors_pure_bc_20261022.json"
+    source_path=ROOT/"configs/palettes/part_palette_30_high_contrast_20261021.json"
+    bc_path=ROOT/"configs/palettes/colors_pure_bc_20261022.json"
     source={int(x["label_id"]):tuple(x["rgb"]) for x in json.loads(source_path.read_text())["colors"]}
     target=[tuple(x[:3]) for x in json.loads(bc_path.read_text())[1:]]
     provenance=dict(old["provenance"],processing_script_sha256=sha(Path(__file__)),

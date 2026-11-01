@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test *.test.mjs",
+    "test": "node --test provenance.test.mjs semantic-core.test.mjs semantic-three.test.mjs",
+    "test:browser": "node --test viewer-race.test.mjs viewer.integration.test.mjs",
     "start": "node serve.cjs"
   }
 }

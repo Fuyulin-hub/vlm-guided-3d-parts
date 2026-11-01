@@ -1,0 +1,13 @@
+{
+  "run_qwen_sam2_guidance_v4.py": "13d5229e85752c7dee13f663e826d7bee0415e63258042ccdf1915e90069f42c",
+  "eval_table2.py": "7dfcd5376b03e6c2ba2b6f75d6dab5a7f538b47fac524e14a1332ec487624438",
+  "start_job.py": "1e1c743c2adab319f0c97d34ff562081b4fc9aa2db2ff65c43b8e16011fc8795",
+  "paper_table_metrics.py": "2e90fdb32004384059ca02234a8dc8a21783cb8639527c687798dae6f97adc1e",
+  "paper_table_runner.py": "f6c00b9fc9b3841a96d3ac7579341287a1db01f163e516887682cf16118b3d31",
+  "run_batch.py": "79c657859cdf87346554c172565a24d00ad0190a3de4d2dd9b619eba5b1a7d7a",
+  "evaluate_c_d_guidance.py": "f1c3d3e039f73ed8461cd6721417b2c60623fce65f858f79202d7679c702540b",
+  "run_variant.py": "d4d7f8d13380a304949917e20e611d7ee6740cfb051fb8bbc49afee2c68119b6",
+  "run_qwen_sam2_guidance_v5_feedback.py": "de85b40248a17e630508f9d7328de8ae33d45741a97e828dea2559a4758afba0",
+  "prepare_server.py": "308d5b79fb455225e756703647879b3697d195b4c474ac0d78921e861c6d997a",
+  "table2_ablation_controls.py": "ba39a2dae553038d480dd14c0cbccd6333cdbf591f119178b71523a9e577012c"
+}

@@ -498,7 +498,8 @@ def _write_png_temp(path: Path, labels: np.ndarray) -> Path:
         raise ValueError("标签图必须是二维 np.uint16")
     temporary = path.with_name(f".{path.name}.{uuid.uuid4().hex}.tmp")
     Image.fromarray(labels).save(temporary, format="PNG")
-    with temporary.open("rb") as handle:
+    # Windows requires a writable descriptor for fsync; the PNG is already saved.
+    with temporary.open("r+b") as handle:
         os.fsync(handle.fileno())
     return temporary
 

@@ -165,9 +165,9 @@ def main():
     args=parser.parse_args()
     root=Path(__file__).resolve().parents[1]
     rows=json.loads((args.source/"source_manifest.json").read_text(encoding="utf-8"))
-    palette_path=root/"downloads/part_palette_30_high_contrast_20261021.json"
+    palette_path=root/"configs/palettes/part_palette_30_high_contrast_20261021.json"
     palette={int(e['label_id']):tuple(e['rgb']) for e in json.loads(palette_path.read_text(encoding="utf-8"))['colors']}
-    bc_path=root/"downloads/colors_pure_bc_20261022.json"
+    bc_path=root/"configs/palettes/colors_pure_bc_20261022.json"
     bc=json.loads(bc_path.read_text(encoding="utf-8"))
     target=[tuple(c[:3]) for c in bc[1:]]
     strict_root=root/"downloads/D_solid_bc20_recolored_20261023"

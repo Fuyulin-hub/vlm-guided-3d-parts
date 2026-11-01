@@ -3,6 +3,10 @@
 !/.gitignore
 !/.gitattributes
 !/README.md
+!/configs/
+!/requirements-test.txt
+!/.github/
+!/reproducibility/
 !/scripts/
 !/tests/
 !/docs/
@@ -31,6 +35,11 @@
 /manuscript/ijcv_english/build/
 /manuscript/ijcv_english/source.zip
 /manuscript/ijcv_english/paper_ijcv_draft.pdf
+/manuscript/ijcv_english/*.zip
+/manuscript/ijcv_english/main_*.pdf
+/manuscript/ijcv_english/archive/
+/manuscript/ijcv_english/backups/
+/manuscript/ijcv_english/submission_package_*/
 **/*.aux
 **/*.bbl
 **/*.blg
