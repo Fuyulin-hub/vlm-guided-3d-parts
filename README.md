@@ -16,7 +16,7 @@ Qwen3-VL proposes part names, boxes, and points; SAM2 predicts masks; a part-lev
 | [reproducibility/table2_pilot5/](reproducibility/table2_pilot5/README.md) | Original five-object ablation source and SHA-256 hashes |
 | [tests/](tests/) | Synthetic CPU checks and a separate EGL rendering test |
 | [work/c-viewer/](work/c-viewer/) | Local Three.js viewer and semantic color correspondence |
-| [manuscript/](manuscript/) | Current manuscript source (IJCV template) with figures and a compiled PDF |
+| [manuscript/](manuscript/) | Current manuscript source (IJCV template) with figures and build steps |
 
 This is a source release, not a complete archive of server runs. The dataset, weights, per-object predictions, evaluation manifests, and frozen camera snapshots are not distributed here. Historical paths must be replaced explicitly. See [reproducibility scope](docs/REPRODUCIBILITY.md) before attributing a paper result to this checkout.
 
