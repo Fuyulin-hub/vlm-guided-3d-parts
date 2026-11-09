@@ -3,6 +3,7 @@
 !/.gitignore
 !/.gitattributes
 !/README.md
+!/LICENSE
 !/configs/
 !/requirements-test.txt
 !/.github/
@@ -21,6 +22,7 @@
 /manuscript/build/
 /manuscript/source_data/
 /manuscript/*.pdf
+!/manuscript/fig*.pdf
 /manuscript/*.zip
 /manuscript/*.aux
 /manuscript/*.bbl
