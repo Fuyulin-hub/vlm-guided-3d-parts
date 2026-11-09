@@ -1,6 +1,6 @@
-# Source packaging checks — 2026-11-01
+# Source packaging checks — 2026-11-09
 
-Verified on the local Windows host with Python 3.12 and Node.js. No experiment server was contacted, no model inference was run, and no scientific scores were recomputed during packaging.
+Verified on the local Windows host with Python 3.13 and Node.js. No experiment server was contacted, no model inference was run, and no scientific scores were recomputed during packaging.
 
 | Check | Result |
 |---|---|
@@ -11,6 +11,7 @@ Verified on the local Windows host with Python 3.12 and Node.js. No experiment s
 | Guidance configuration CLI | Passes without image/checkpoint/GPU assets; source hashes recorded |
 | Windows atomic PNG writes | Three existing regression tests pass after writable-descriptor fsync fix |
 | Clean Git export | Tests run against exported tracked files; annotation palettes included under configs/palettes |
+| Public-scope audit | No credentials, model weights, datasets, predictions, or run logs were added in this revision |
 
 Commands:
 

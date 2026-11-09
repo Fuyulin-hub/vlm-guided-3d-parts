@@ -4,6 +4,8 @@ Research code for language-guided 2D part masks, their use as guidance for a fro
 
 Qwen3-VL proposes part names, boxes, and points; SAM2 predicts masks; a part-level audit permits at most one retry. Point-aware assembly combines selected masks into integer labels and a colored guidance image. The downstream backend used in the experiments is SegViGen.
 
+> **Public source release.** This repository contains code, small configuration assets, synthetic tests, and a frozen five-object ablation snapshot. It intentionally excludes data, model weights, rendered outputs, per-object predictions, server manifests, credentials, and private experiment logs. Read the [code-release scope](docs/CODE_RELEASE.md) before attempting a reproduction.
+
 ## Repository map
 
 | Location | Contents |
@@ -14,7 +16,7 @@ Qwen3-VL proposes part names, boxes, and points; SAM2 predicts masks; a part-lev
 | [reproducibility/table2_pilot5/](reproducibility/table2_pilot5/README.md) | Original five-object ablation source and SHA-256 hashes |
 | [tests/](tests/) | Synthetic CPU checks and a separate EGL rendering test |
 | [work/c-viewer/](work/c-viewer/) | Local Three.js viewer and semantic color correspondence |
-| [manuscript/ijcv_english/](manuscript/ijcv_english/README.md) | Current English LaTeX manuscript, figures, bibliography, and PDF |
+| [manuscript/](manuscript/) | Historic manuscript sources retained separately from the executable code |
 
 This is a source release, not a complete archive of server runs. The dataset, weights, per-object predictions, evaluation manifests, and frozen camera snapshots are not distributed here. Historical paths must be replaced explicitly. See [reproducibility scope](docs/REPRODUCIBILITY.md) before attributing a paper result to this checkout.
 
@@ -74,10 +76,10 @@ Open `http://127.0.0.1:4173/` and load your GLB, annotations, and provenance rec
 
 English part names use `label`; region identities use `label_id`. Colors encode local partitions, not a cross-object semantic vocabulary. Viewer color coverage is not segmentation accuracy.
 
-## Manuscript and evaluation scope
+## Evaluation boundaries
 
-The current English [source](manuscript/ijcv_english/main.tex) and [PDF](manuscript/ijcv_english/main.pdf) use one main-text document with eight tables and nine figures. Compile with XeLaTeX and BibTeX. The earlier Chinese draft under `manuscript/` is not the current submission.
+When the scoring reference is also supplied as D-arm guidance, D measures reference-conditioned consistency, not performance against an input-independent ground truth. Projected scores evaluate the observed view, not full-surface 3D segmentation accuracy. Sample counts and aggregation must be read from the evaluation manifest for the specific run.
 
-When the scoring reference is also supplied as D-arm guidance, D measures reference-conditioned consistency, not performance against an input-independent ground truth. Projected scores evaluate the observed view, not full-surface 3D segmentation accuracy. Sample counts and aggregation are identified separately for each analysis.
+The manuscript directory is retained for historical context. It is not required to run the source release and does not substitute for the official submission package.
 
 [RELEASE_QA.md](docs/RELEASE_QA.md) records checks run for this revision. [THIRD_PARTY.md](docs/THIRD_PARTY.md) describes upstream components. No project-wide redistribution license is asserted by this upload.
