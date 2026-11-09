@@ -35,14 +35,14 @@
 \author[1]{\fnm{Yulin} \sur{Fu}}\email{fyulin2024@lzu.edu.cn}
 
 \author[1]{\fnm{Cheng} \sur{Yang}}\email{ycheng2026@lzu.edu.cn}
-\equalcont{These authors contributed equally as second authors.}
+\equalcont{These authors contributed equally to this work and share second authorship.}
 
-\author[1]{\fnm{Qing} \sur{Ai}}\email{aiq2026@lzu.sysu.edu.cn}
-\equalcont{These authors contributed equally as second authors.}
+\author[1]{\fnm{Qing} \sur{Ai}}\email{aiq2026@lzu.edu.cn}
+\equalcont{These authors contributed equally to this work and share second authorship.}
 
 \author*[1]{\fnm{Jisheng} \sur{Dang}}\email{dangjisheng@lzu.edu.cn}
 
-\author*[2]{\fnm{Bin} \sur{Hu}}\email{bh@bit.edu.cn}
+\author[2]{\fnm{Bin} \sur{Hu}}\email{bh@bit.edu.cn}
 
 \author[3]{\fnm{Wei-Shi} \sur{Zheng}}\email{wszheng@outlook.com}
 
@@ -64,7 +64,7 @@
 
 \affil[6]{\orgname{Sun Yat-sen University}, \orgaddress{\city{Shenzhen}, \country{China}}}
 
-\abstract{Guiding 3D part segmentation requires resolving overlaps between independently predicted part masks. When revised prompts also set assembly priorities, correcting a mask changes both its prediction and its arbitration against other masks. We separate these operations using original spatial anchors. A vision-language model (VLM) audit revises the Segment Anything Model 2 (SAM2) predictions, while the initial points and boxes govern component selection and assembly priority. With masks fixed, retry-box ordering changes pixel ownership on 75 of 471 objects. Compared with raw-image SegviGen, our guidance improves the projected mean intersection over union (mIoU) and the five-pixel boundary F1 (BF1) by an absolute 4.14\% and 4.39\%, respectively. On 14 paired PartObjaverse-Tiny meshes, it improves instance intersection over union (IoU) over raw-image guidance, while automatic SAM2 guidance leads on both native metrics. Our code is available at \codeurl.}
+\abstract{Guiding 3D part segmentation requires resolving overlaps between independently predicted part masks. When revised prompts also set assembly priorities, correcting a mask changes both its prediction and its arbitration against other masks. We separate these operations using original spatial anchors. A vision-language model (VLM) audit revises the Segment Anything Model 2 (SAM2) predictions, while the initial points and boxes govern component selection and assembly priority. With masks fixed, retry-box ordering changes pixel ownership on 75 of 471 objects. Compared with raw-image SegviGen, our guidance improves the projected mean intersection over union (mIoU) and the five-pixel boundary F1 (BF1) by 4.14 and 4.39 percentage points (pp), respectively. On 14 paired PartObjaverse-Tiny meshes, it improves instance intersection over union (IoU) over raw-image guidance, while automatic SAM2 guidance leads on both native metrics. Our code is available at \codeurl.}
 
 \keywords{3D part segmentation, vision-language models, spatial anchors, mask refinement}
 
@@ -165,7 +165,7 @@ Frozen SegviGen predicts $\widehat{\mathcal G}_k=H_\phi(V,G_k;\xi)$ with weights
 \section{Experiments}\label{sec:experiments}
 
 \begin{table}[t]
-\caption{Projection agreement (\%). Five methods share 471 objects and object weighting, and shading is columnwise within this block. Find3D uses 468 objects, group weighting, and reference-assisted queries. Part F1 uses IoU 0.5.}
+\caption{Projection agreement (\%). Five methods and the automatic-SAM2 condition share 471 objects and object weighting, and shading is columnwise within this block. B reuses the frozen backend of A under automatic SAM2 guidance, and BF1@2px was not recorded for it. Find3D uses 468 objects, group weighting, and reference-assisted queries. Part F1 uses IoU 0.5.}
 \label{tab:main}
 \setlength{\tabcolsep}{3pt}
 \begin{tabularx}{\textwidth}{@{}Y >{\raggedright\arraybackslash}p{1.9cm} c c c c c@{}}
@@ -173,10 +173,11 @@ Frozen SegviGen predicts $\widehat{\mathcal G}_k=H_\phi(V,G_k;\xi)$ with weights
 Method & Part condition & \shortstack{Proj. mIoU\\(\%) $\uparrow$} & \shortstack{BF1@5px\\(\%) $\uparrow$} & \shortstack{BF1@2px\\(\%) $\uparrow$} & \shortstack{Part F1@0.5\\(\%) $\uparrow$} & \shortstack{Evaluable\\$N$}\\
 \midrule
 PartField \citep{liu2025partfield} & Clustering & \heatcell{F3F8CD}{34.17} & \heatcell{FAEFCE}{25.80} & \heatcell{FAE3CF}{13.98} & \heatcell{FBD2D2}{17.46} & 471\\
-P3-SAM \citep{ma2025p3sam} & Automatic & \heatcell{D1F5D0}{\textbf{40.05}} & \heatcell{E1F7CE}{32.67} & \heatcell{F3F8CD}{18.17} & \heatcell{D1F5D0}{\textbf{37.44}} & 471\\
+P3-SAM \citep{ma2025p3sam} & Automatic & \heatcell{D1F5D0}{\textbf{40.05}} & \heatcell{E1F7CE}{32.67} & \heatcell{F3F8CD}{18.17} & \heatcell{D1F5D0}{37.44} & 471\\
 GeoSAM2 \citep{deng2025geosam2} & Automatic views & \heatcell{FBD2D2}{26.08} & \heatcell{FBD2D2}{19.89} & \heatcell{FBD2D2}{11.40} & \heatcell{DDF6CF}{34.56} & 471\\
-SegviGen \citep{li2026segvigen} & No part prompt & \heatcell{F4F8CD}{34.00} & \heatcell{E7F7CE}{31.48} & \heatcell{E4F7CE}{20.26} & \heatcell{E6F7CE}{32.27} & 471\\
-Ours & 2D guidance & \heatcell{DCF6CF}{38.14} & \heatcell{D1F5D0}{\textbf{35.88}} & \heatcell{D1F5D0}{\textbf{23.07}} & \heatcell{D3F5D0}{36.84} & 471\\
+SegviGen (A) \citep{li2026segvigen} & No part prompt & \heatcell{F4F8CD}{34.00} & \heatcell{E7F7CE}{31.48} & \heatcell{E4F7CE}{20.26} & \heatcell{E6F7CE}{32.27} & 471\\
+SegviGen (B) & Automatic SAM2 & \heatcell{E8F7CE}{35.78} & \heatcell{DDF6CF}{32.66} & \heatcell{EFEFEF}{--} & \heatcell{D1F5D0}{\textbf{40.79}} & 471\\
+Ours (C) & 2D guidance & \heatcell{DCF6CF}{38.14} & \heatcell{D1F5D0}{\textbf{35.88}} & \heatcell{D1F5D0}{\textbf{23.07}} & \heatcell{D3F5D0}{36.84} & 471\\
 \midrule
 \multicolumn{7}{@{}l}{\textit{Separate reference-assisted setting, group-macro aggregation}}\\
 Find3D \citep{ma2024find3d} & D-assisted queries & 30.66 & 30.66 & 26.38 & 33.03 & 468\\
@@ -187,7 +188,7 @@ Find3D \citep{ma2024find3d} & D-assisted queries & 30.66 & 30.66 & 26.38 & 33.03
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{fig_sixmethod_3d_comparison_clean.pdf}
-\caption{Six selected favorable cases with matched detail enlargements. Left labels name selected visible parts in Ours, and colors are local to each output. Rows share display views and scales. Find3D uses labeled points, and the other methods use meshes.}
+\caption{Six selected cases with matched detail enlargements, chosen to expose where the methods differ; they are neither a random sample nor ranked by any score. Left labels name selected visible parts in Ours, and colors are local to each output. Rows share display views and scales. Find3D uses labeled points, and the other methods use meshes.}
 \label{fig:sixmethod_qualitative}
 \end{figure}
 
@@ -216,7 +217,7 @@ Guidance & mIoU & BF1@5px & BF1@2px & Part F1\\
 \midrule
 B (SAM2 \citep{ravi2024sam2}) & 45.86 & 50.44 & 45.74 & 40.84\\
 C (Ours) & \textbf{52.88} & \textbf{54.38} & \textbf{47.55} & \textbf{44.07}\\
-$\Delta$ (\%) & $+7.01$ & $+3.94$ & $+1.81$ & $+3.23$\\
+$\Delta$ (pp) & $+7.01$ & $+3.94$ & $+1.81$ & $+3.23$\\
 \botrule
 \end{tabular}
 \end{table}
@@ -245,7 +246,7 @@ SegviGen uses 512-resolution voxels, \texttt{full\_seg\_w\_2d\_map.ckpt}, 20 sam
 \begin{figure}[t]
 \centering
 \includegraphics[width=\textwidth]{fig4_3d_comparison_clean.pdf}
-\caption{Selected A/B/C/D outputs with matched detail enlargements and color-coded part names for Ours. Rows share display views, scales, and lighting, and scoring uses separate frozen cameras. Colors denote local regions.}
+\caption{Selected A/B/C/D outputs with matched detail enlargements and color-coded part names for Ours. Cases were chosen to expose visible differences among the four conditions; they are neither a random sample nor ranked by any score. Rows share display views, scales, and lighting, and scoring uses separate frozen cameras. Colors denote local regions.}
 \label{fig:qualitative}
 \end{figure}
 
@@ -280,7 +281,7 @@ We ignore labels $-1$ and $65535$. Background zero is excluded from the part lis
 \end{equation}
 Unmatched reference parts contribute zero. Part F1 instead maximizes the number $T$ of pairs with IoU $\geq0.5$ and equals $2T/(m+n)$ for $m$ predictions.
 
-BF1 complements region overlap \citep{cheng2021boundaryiou}. We sum boundary F1 over nonzero-overlap mIoU-matched pairs and divide by $n$, with zero for unmatched parts. Tolerances are two or five pixels at $1024\times1024$, using identical inputs within each cohort. Primary metrics weight the 471 objects (432 original, 39 extension) equally. Differences between two scores are absolute differences and are written in \%.
+BF1 complements region overlap \citep{cheng2021boundaryiou}. We sum boundary F1 over nonzero-overlap mIoU-matched pairs and divide by $n$, with zero for unmatched parts. Tolerances are two or five pixels at $1024\times1024$, using identical inputs within each cohort. Primary metrics weight the 471 objects (432 original, 39 extension) equally. Scores are percentages of the same metric, whereas differences between two scores are absolute differences reported in percentage points (pp); a level is never reported in pp, and a difference is never reported in \%. Each pp value is computed from unrounded scores, so it may differ from the rounding of the two levels it separates.
 
 We project outputs to discrete labels with recorded cameras and transforms. The A/B/C/D and ablation runs require shared source identity, exact foreground and face-count preservation per arm, camera-to-source foreground IoU $\geq0.50$, and all six cross-arm foreground IoUs $\geq0.99$. Failure excludes the UID from every arm. External methods retain their recorded registration and camera gates, and scoring uses the original projections. Scores concern the visible partition, not volumetric IoU or unseen surfaces, and display views are separate.
 
@@ -302,7 +303,7 @@ Ours & 24.57 / 21.74 / 25.16 & 46.36 / 38.32 / 42.43 & 41.61 / 47.02 / 41.65\\
 \end{table}
 
 \begin{table}[t]
-\caption{Mask refinement on 500 archived objects with identical retained candidates and assembly anchors. Group-macro percentages use unrounded differences. Recall and Part F1 use IoU 0.5.}
+\caption{Mask refinement on 500 archived objects with identical retained candidates and assembly anchors. Levels are group-macro percentages, and differences use unrounded scores and are reported in pp. Recall and Part F1 use IoU 0.5.}
 \label{tab:audit}
 \setlength{\tabcolsep}{8pt}
 \begin{tabular}{@{}lccc@{}}
@@ -312,7 +313,7 @@ Guidance & mIoU & Recall & Part F1\\
 Initial masks & 51.21 & 51.06 & 43.77\\
 Selected masks & 51.53 & 51.70 & 43.72\\
 \midrule
-$\Delta$ (\%) & $+0.31$ & $+0.64$ & $-0.05$\\
+$\Delta$ (pp) & $+0.31$ & $+0.64$ & $-0.05$\\
 \botrule
 \end{tabular}
 \end{table}
@@ -323,17 +324,22 @@ $\Delta$ (\%) & $+0.31$ & $+0.64$ & $-0.05$\\
 \setlength{\tabcolsep}{8pt}
 \begin{tabular}{@{}lrrrr@{}}
 \toprule
-Group & $N$ & mIoU & BF1 & Part F1\\
+Group & $N^{\dagger}$ & mIoU & BF1 & Part F1\\
 \midrule
 Assemblies & 151 & 45.39 & 45.55 & 45.54\\
 Solid volume & 179 & 56.18 & 55.56 & 37.58\\
 Thin / fine-grained & 149 & 58.95 & 64.94 & 52.85\\
 \botrule
 \end{tabular}
+\par\vspace{2pt}
+\noindent\begin{minipage}{\linewidth}
+\footnotesize
+$^{\dagger}$\,$N$ counts the objects in each group that hold an available C guidance map. The three entries therefore total 479, the number of scorable C maps, rather than the 500 archived objects of Table~\ref{tab:audit} or the 471 objects scored in Table~\ref{tab:main}; the remaining 21 archived objects contribute no scorable C map and are omitted from every group.
+\end{minipage}
 \end{table}
 
 \subsection{Comparison with Existing Methods}
-In Table~\ref{tab:main}, Ours gains 4.14\% mIoU, 4.39\% BF1@5px, and 4.57\% Part F1 over raw-image SegviGen on 471 objects. Its BF1 leads all four paired baselines at both tolerances, whereas P3-SAM leads on mIoU and Part F1. Fig.~\ref{fig:summary}a summarizes these comparisons. In Fig.~\ref{fig:sixmethod_qualitative}, selected cases show the separation of the mug handle, bat grip, and fan support, alongside residual fragments.
+In Table~\ref{tab:main}, Ours gains 4.14 pp mIoU, 4.39 pp BF1@5px, and 4.57 pp Part F1 over raw-image SegviGen (A) on 471 objects. Its BF1@5px is the highest of the six paired conditions, whereas P3-SAM leads on mIoU and the automatic-SAM2 condition (B) leads on Part F1. Against B, ours gains 2.35 pp mIoU and 3.21 pp BF1@5px while trailing by 3.95 pp in Part F1 (Table~\ref{tab:controlled}), so the boundary advantage and the part-recovery deficit are both visible in the main comparison rather than only in the paired controls. Fig.~\ref{fig:summary}a summarizes these comparisons. In Fig.~\ref{fig:sixmethod_qualitative}, selected cases show the separation of the mug handle, bat grip, and fan support, alongside residual fragments.
 
 \begin{figure}[t]
 \centering
@@ -343,26 +349,26 @@ In Table~\ref{tab:main}, Ours gains 4.14\% mIoU, 4.39\% BF1@5px, and 4.57\% Part
 \end{figure}
 
 \subsection{Effect of Guidance on the Frozen Backend}
-In Table~\ref{tab:guidance2d}, C gains 7.01\% mIoU and 3.23\% Part F1 in paired 2D guidance, with BF1 gains of 3.94\% and 1.81\% at five and two pixels. Its 479 available maps score 53.64\%, 55.32\%, and 44.84\% in mIoU, BF1@5px, and Part F1. In Fig.~\ref{fig:guidance}, B and D share the cone mask.
+In Table~\ref{tab:guidance2d}, C gains 7.01 pp mIoU and 3.23 pp Part F1 in paired 2D guidance on the 440 objects that hold a matched B/C pair, with BF1 gains of 3.94 pp and 1.81 pp at five and two pixels. Pooling every available C map instead of only the paired subset, 479 maps score 53.64\%, 55.32\%, and 44.84\% in mIoU, BF1@5px, and Part F1. C's 2D agreement therefore appears at four levels, and each is tied to the artefacts a cohort requires rather than to a change of setting: 52.88 on the 440 objects that hold a matched B/C pair (Table~\ref{tab:guidance2d}), 53.64 on the 479 pooled C maps, 53.92 on the 471 objects of the controlled run (Table~\ref{tab:ablation}), and 51.53 on the 500 archived objects, where equal group weights replace object weights (Table~\ref{tab:audit}). In Fig.~\ref{fig:guidance}, B and D share the cone mask.
 
-With geometry and inference fixed, Table~\ref{tab:controlled} shows that C gains 2.35\% mIoU and 3.21\% BF1 over B, with a 3.95\% lower Part F1. Reference guidance yields 51.51\% mIoU under D. In Fig.~\ref{fig:qualitative}, C separates the cone base and hanger hook, with a small extra region near the cone rim.
+With geometry and inference fixed, Table~\ref{tab:controlled} shows that C gains 2.35 pp mIoU and 3.21 pp BF1 over B, with a 3.95 pp lower Part F1. Reference guidance yields 51.51\% mIoU under D. In Fig.~\ref{fig:qualitative}, C separates the cone base and hanger hook, with a small extra region near the cone rim.
 
 \subsection{Paired Mask and Assembly Controls}
-Table~\ref{tab:ablation} reports controls on mask selection, filtering, and ordering with shared plans, candidates, initial masks, references, and cameras. No mask audit retains initial masks, and no point filtering bypasses both filters. Four configurations have backend outputs, reprojected together, and Full scores 38.11\%, compared with 38.14\% in the main run. Guidance scores decode RGB inputs, including palette reuse on four objects.
+Table~\ref{tab:ablation} reports controls on mask selection, filtering, and ordering with shared plans, candidates, initial masks, references, and cameras. No mask audit retains initial masks, and no point filtering bypasses both filters. Four configurations have backend outputs, reprojected together, and Full scores 38.11\%, compared with 38.14\% in the main run. The 2D columns of Table~\ref{tab:ablation} describe the 471-object controlled cohort, so they are read against the main run rather than against the 440-object paired comparison of Table~\ref{tab:guidance2d}. Guidance scores decode RGB inputs, including palette reuse on four objects.
 
-With point filtering disabled in both configurations, small-box ordering gains 10.02\% in 2D mIoU and 6.86\% in BF1 over decreasing mask-area ordering. Projection gains are 3.53\% and 4.40\%, while Part F1 falls by 5.34\%, as Fig.~\ref{fig:summary}c shows. Processing order affects the residual area available to each candidate and can determine whether it survives. This comparison measures the complete assembly rule, including its color assignment, rather than isolating original versus retry boxes.
+With point filtering disabled in both configurations, small-box ordering gains 10.02 pp in 2D mIoU and 6.86 pp in BF1 over decreasing mask-area ordering. Projection gains are 3.53 pp and 4.40 pp, while Part F1 falls by 5.34 pp, as Fig.~\ref{fig:summary}c shows. Processing order affects the residual area available to each candidate and can determine whether it survives. This comparison measures the complete assembly rule, including its color assignment, rather than isolating original versus retry boxes.
 
-Removing the audit raises projected mIoU and BF1 by 0.24\% each and lowers Part F1 by 0.36\%. Bypassing point filtering changes each projected mean by less than 0.7\%. Thus, the strongest measured assembly effect is the ordering trade-off, and the audit and point filtering yield smaller, metric-dependent changes.
+Removing the audit raises projected mIoU and BF1 by 0.24 pp each and lowers Part F1 by 0.36 pp. Bypassing point filtering changes each projected mean by less than 0.7 pp. Thus, the strongest measured assembly effect is the ordering trade-off, and the audit and point filtering yield smaller, metric-dependent changes.
 
-The box control fixes selected masks and original points. Substituting valid retry boxes changes order on 101 of 471 objects and ownership on 75. Another 25 change RGB encoding alone, and one changes neither output. Comparing ownership by candidate ID excludes label renumbering. Retry boxes raise 2D mIoU by 0.17\% and BF1 by 0.28\%. This establishes sensitivity to box choice, without a measured advantage for the original boxes. The control has no backend outputs.
+The box control fixes selected masks and original points. Substituting valid retry boxes changes order on 101 of 471 objects and ownership on 75. Another 25 change RGB encoding alone, and one changes neither output. Comparing ownership by candidate ID excludes label renumbering. Retry boxes raise 2D mIoU by 0.17 pp and BF1 by 0.28 pp. This establishes sensitivity to box choice, without a measured advantage for the original boxes. The control has no backend outputs.
 
-On 500 archived objects, mask replacement fixes the anchors and 3,546 of 4,627 candidates retained in production, and Table~\ref{tab:audit} reports the result. Selected masks reproduce production partitions and raise group-macro mIoU by 0.31\%. Among 283 objects with retries, 138 improve, 139 decline, and six tie.
+On 500 archived objects, mask replacement fixes the anchors and 3,546 of 4,627 candidates retained in production, and Table~\ref{tab:audit} reports the result. Selected masks reproduce production partitions and raise group-macro mIoU by 0.31 pp; these levels average the archived cohort with equal group weights, so they are not comparable with the object-weighted scores above. Among 283 objects with retries, 138 improve, 139 decline, and six tie.
 
 \subsection{Structural Variation}\label{sec:structural_analysis}
-In Table~\ref{tab:guidance_group}, C guidance scores highest on thin or fine-grained objects. In paired projections, Table~\ref{tab:projection_group} shows that Ours trails P3-SAM and PartField in assembly mIoU, and exceeds P3-SAM in BF1 by 7.71\% on solid objects and 2.98\% on thin objects.
+In Table~\ref{tab:guidance_group}, C guidance scores highest on thin or fine-grained objects. In paired projections, Table~\ref{tab:projection_group} shows that Ours trails P3-SAM and PartField in assembly mIoU, and exceeds P3-SAM in BF1 by 7.71 pp on solid objects and 2.98 pp on thin objects.
 
 \begin{table}[t]
-\caption{Archived paired B/C structure analysis (\%). BF1 uses a 2px tolerance and recall uses IoU 0.5. $\Delta$ denotes C$-$B in \%. Group rows average objects, and other rows weight groups equally. $N$ denotes contributing objects, and n/a marks an undefined macro-average.}
+\caption{Archived paired B/C structure analysis (\%). BF1 uses a 2px tolerance and recall uses IoU 0.5. $\Delta$ denotes C$-$B in pp, computed from unrounded scores. Group rows average objects, and other rows weight groups equally. $N$ denotes contributing objects, and n/a marks an undefined macro-average. An object may appear in more than one size bin, so the size rows overlap and do not sum to the cohort.}
 \label{tab:strata}
 \footnotesize
 \setlength{\tabcolsep}{2pt}
@@ -389,8 +395,8 @@ Overall & All objects & 500 & 44.79 & 51.53 & $+6.74$ & 44.74 & 46.87 & $+2.13$ 
 \end{tabular*}
 \end{table}
 
-The archived analysis in Table~\ref{tab:strata} bins parts by foreground-relative area after whole-object matching. C gains 6.74\% macro mIoU overall, with gains of 21.44\% on medium parts and 2.90\% on small parts, as Fig.~\ref{fig:summary}b shows. % TODO check: the text below reports the at-least-11-parts losses, but that row of the table is n/a. Add the per-group values to the table or reword.
-With at least 11 parts, C loses 1.56\% on assemblies and 1.93\% on thin objects. The solid-volume bin is empty.
+The archived analysis in Table~\ref{tab:strata} bins parts by foreground-relative area after whole-object matching. C gains 6.74 pp macro mIoU overall, with gains of 21.44 pp on medium parts and 2.90 pp on small parts, as Fig.~\ref{fig:summary}b shows.
+The largest part-count bin, namely objects with at least 11 parts ($N=66$), has an undefined pooled macro-average, which Table~\ref{tab:strata} marks n/a. We therefore compare the structural groups that contain such objects instead of the pooled bin: C trails B by 1.56 pp on assemblies and 1.93 pp on thin or fine-grained objects, and no solid-volume object reaches this part count.
 
 \subsection{Native Mesh Evaluation}\label{sec:native_mesh}
 We prespecified 16 PartObjaverse-Tiny meshes by UID hash, two per category, disjoint from the main and development sets \citep{yang2024sampart3d}. A, B, and C share source meshes, views, and backend settings. We invert the export transform and assign each source face centroid its closest predicted surface label within two normalized voxel diagonals. Geometry review precedes reading official labels and requires 95\% assigned faces per arm. Unassigned faces remain in the metric. Official ground-truth-best (GT-best) IoU averages each reference part's best overlap, allowing predicted-region reuse, and then weights objects equally.
@@ -410,7 +416,7 @@ C (Ours) & 43.69 & 43.89\\
 \end{tabular}
 \end{table}
 
-Two C plans failed, leaving 14 paired meshes without replacement. In Table~\ref{tab:native_mesh}, C improves instance IoU over A on 10 meshes, averaging $+5.04$\%. Against B, it improves eight and declines on six, averaging $-3.04$\% instance and $-1.55$\% semantic IoU. Thus, the projection gain over B does not extend to these official mesh labels. This comparison tests the full pipeline, rather than anchor choice.
+Two C plans failed, leaving 14 paired meshes without replacement. In Table~\ref{tab:native_mesh}, C improves instance IoU over A on 10 meshes, averaging $+5.04$ pp. Against B, it improves eight and declines on six, averaging $-3.04$ pp instance and $-1.55$ pp semantic IoU. Thus, the projection gain over B does not extend to these official mesh labels. This comparison tests the full pipeline, rather than anchor choice.
 
 % Complete all experimental floats before the conclusion.
 \FloatBarrier
