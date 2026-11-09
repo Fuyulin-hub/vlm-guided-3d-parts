@@ -16,7 +16,7 @@ Qwen3-VL proposes part names, boxes, and points; SAM2 predicts masks; a part-lev
 | [reproducibility/table2_pilot5/](reproducibility/table2_pilot5/README.md) | Original five-object ablation source and SHA-256 hashes |
 | [tests/](tests/) | Synthetic CPU checks and a separate EGL rendering test |
 | [work/c-viewer/](work/c-viewer/) | Local Three.js viewer and semantic color correspondence |
-| [manuscript/](manuscript/) | Historic manuscript sources retained separately from the executable code |
+| [manuscript/](manuscript/) | Current manuscript source (IJCV template) with figures and a compiled PDF |
 
 This is a source release, not a complete archive of server runs. The dataset, weights, per-object predictions, evaluation manifests, and frozen camera snapshots are not distributed here. Historical paths must be replaced explicitly. See [reproducibility scope](docs/REPRODUCIBILITY.md) before attributing a paper result to this checkout.
 
@@ -80,6 +80,10 @@ English part names use `label`; region identities use `label_id`. Colors encode 
 
 When the scoring reference is also supplied as D-arm guidance, D measures reference-conditioned consistency, not performance against an input-independent ground truth. Projected scores evaluate the observed view, not full-surface 3D segmentation accuracy. Sample counts and aggregation must be read from the evaluation manifest for the specific run.
 
-The manuscript directory is retained for historical context. It is not required to run the source release and does not substitute for the official submission package.
+The manuscript directory holds the current source and is not required to run the source release. Earlier drafts, submission archives, and superseded journal templates were removed on 2026-11-09; they remain in the repository history.
 
-[RELEASE_QA.md](docs/RELEASE_QA.md) records checks run for this revision. [THIRD_PARTY.md](docs/THIRD_PARTY.md) describes upstream components. No project-wide redistribution license is asserted by this upload.
+[RELEASE_QA.md](docs/RELEASE_QA.md) records checks run for this revision. [THIRD_PARTY.md](docs/THIRD_PARTY.md) describes upstream components.
+
+## License
+
+This repository is released under the Apache License 2.0 (see [LICENSE](LICENSE)). Third-party components keep their own licenses, listed in [THIRD_PARTY.md](docs/THIRD_PARTY.md). The manuscript text and figures are distributed for review and citation; if you reuse them, cite the paper.

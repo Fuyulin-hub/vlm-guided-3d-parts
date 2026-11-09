@@ -1,75 +1,43 @@
-# 中文论文初稿
+# Manuscript source
 
-题目：面向生成式三维资产的视觉语言引导部件分割与语义标注
+Current source of the manuscript on decoupling mask refinement from assembly for
+language-guided 3D part segmentation.
 
-这是便于讨论、补实验和后续翻译的中文双栏工作稿，不是已经核验的 IJCV 正式投稿模板。作者、单位、目标特刊规则和最终英语文稿尚未填写。
+| File | Role |
+|---|---|
+| `main.tex` | Single-file source, Springer `sn-jnl` class, author-year references |
+| `sn-jnl.cls` | Springer Nature journal class |
+| `sn-mathphys-ay.bst` | Bibliography style (author-year) |
+| `references.bib` | Bibliography database |
+| `fig1_motivation.pdf` | Figure 1, motivation |
+| `fig2_pipeline.pdf` | Figure 2, pipeline |
+| `fig_audit_assembly_single_column.pdf` | Audit and assembly controls |
+| `fig_sixmethod_3d_comparison_clean.pdf` | Six-method qualitative comparison |
+| `fig3_guidance_clean.png` | Guidance comparison, source images |
+| `fig4_3d_comparison_clean.pdf` | 3D comparison across conditions |
+| `fig_summary_bars.pdf` | Summary of quantitative results |
 
-## 后续正式稿的格式规范（用户指定）
+`main.pdf` is produced by the build below and is not versioned, because `.gitignore`
+excludes generated PDFs at this level.
 
-2026-10-24，用户指定后续写作遵循其提供的 Springer Nature LaTeX 模板。12 个原始文件已按字节原样保存于 `templates/springer-nature/`，包括 `sn-article.tex`、`sn-jnl.cls`、示例 PDF、`user-manual.pdf`、示例文献库、5 个 `.bst` 和 2 个 EPS 示例。模板源码标注 Version 3.1, December 2024；不把这条版本信息称为已在线核验的最新版本。
+## Build
 
-后续正式稿按以下规则处理：
+`pdflatex` → `bibtex` → `pdflatex` → `pdflatex`:
 
-- 采用官方 `sn-jnl` 类及其语义命令组织标题、作者、单位、通讯作者、摘要、关键词、正文和文后内容；不把现有中文双栏排版当作正式期刊要求，不擅自修改类文件、字体、页边距或用负间距压缩页数。
-- 通用模板服从目标期刊的 Instructions for Authors。单栏、`iicol` 双栏、`referee` 双倍行距、`lineno` 行号、匿名要求、篇幅及摘要字数，须在目标期刊/稿件类型确定后核对；不把模板示例中的全部章节或顺序视为每种论文的强制结构。
-- 摘要、章节、公式、图表、算法和参考文献使用模板提供的环境与自动编号；通过 `\label`、`\ref` 和适用的引用命令关联，不手填图表号或参考文献号。
-- 表题在表格上方、图注在图片下方；使用模板示例的三线表和表注方式。多面板图先组成一个完整图文件，不直接套用不兼容的 subfigure 排版。图片格式与编译链配套：pdfLaTeX 使用 PDF/PNG/JPG，传统 LaTeX 的 EPS 路径单独处理。
-- 正式提交包按样例开头的要求整理成单一主 `.tex`，不以 `\input{...}` 分发正文；图像等文件单独提交，并按手册要求与主文件同级放置。当前项目仍可按章节维护，只有在用户要求正式套版/打包时才合并或展平，不能因此提前覆盖中文工作稿或搬动现有图片。
-- 文献继续使用本项目真实、已核验的 `references.bib`；`sn-bibliography.bib` 是格式示例，不能当作本论文真实引文。引用制式和 `.bst` 与期刊要求及 `sn-jnl` 选项一致，不机械沿用中文稿的 `unsrt`。Nature/eJP 的参考文献嵌入要求仅在适用时使用，不扩大为所有期刊的统一要求。
-- 按期刊要求准备 Acknowledgements、Funding、Competing interests、Data/Code availability、Author contributions、伦理/同意声明及附录；不适用项按期刊规定填写，不虚构作者、资助、伦理审批或数据开放状态。
-
-依据位置：`sn-article.tex` 文件头、Tables/Figures/Cross referencing 与 Back matter 示例；`user-manual.pdf` 第 3–5、8–9、11–14 页。手册强调模板用于同行评审排版，不等于最终出版版式。
-
-当前附件的待确认项：
-
-- `sn-article.tex` 启用 `\documentclass[pdflatex,sn-mathphys-num]{sn-jnl}`，但这批文件未包含 `sn-mathphys-num.bst`；正式采用该制式前需补齐，不能随意改用另一种 `.bst` 掩盖缺项。
-- 提供的示例 PDF 显示作者—年份引文，而当前 `.tex` 启用数字制式，因此示例 PDF 只作版式参考，不用它判定本论文最终引用制式。
-- 尚未确定并在线核验具体期刊/年份/稿件类型规则，也未编译该样例。此次只登记规范和保存原件，未修改 `main.tex`、章节、图表或真实文献库。
-
-## 阅读和编辑
-
-- `main.tex`：主文档，使用 XeLaTeX。
-- `sections/`：按章节拆分的中文正文。
-- `references.bib`：15 篇经原始来源核验的参考文献；预印本不冒充录用论文。
-- `figures/`：图 1 方法、图 2 数据处理、图 3 动机的排版与图注，以及图 4–7 的空白占位。
-- `images/`：作者提供的三张原图，未修改；这是栅格插图，不是重绘的可编辑矢量图。
-- `tables/`：三张可编辑 LaTeX 三线表。
-- `source_data/`：本次 Excel 的原样副本。
-- `EVIDENCE.md`：内容依据、证据缺口及关键口径。
-- `paper_chinese_draft.pdf`：成功编译后导出的阅读版。
-
-写作实际顺序为：图表配置 → 相关工作 → 方法 → 实验 → 引言 → 摘要与结论。PDF 阅读顺序采用常规论文结构：摘要、引言、相关工作、方法、实验、结论、参考文献和附录。图编号严格保留用户指定顺序。
-
-## 目前缺什么
-
-提供的三个工作簿均只有实验模板，所有测量单元格都是 `TBD`。文中没有填入推测分数，也未使用 V3/V4 历史统计或少量样本观察填补 V5 全量实验。结果段落保留分析结构，摘要中的结果句明确待补。
-
-1. 冻结开发/测试对象清单、同版本数据与模型配置，补齐表 1–3 对象级结果。
-2. 确认人工 D 参考制作方式、参考与生成几何的对齐关系；D 不写成“修补 B”，也不写成完整三维 GT。
-3. 验证共享 GLB/VXZ 与三维运行记录。三维输出不同，不意味着底层受控输入必须不同；如果真实流程是各条件独立生成几何，需要调整方法图和实验口径，不能把它宣称为仅改变二维引导的对照。
-4. 明确消融替代规则、GeoSAM2 接口适配、主观评分、失败/坍塌判据与耗时边界。
-5. 完成同版本可视化及分组柱状图、消融差值图、提示预算折线图。当前图 4–7 是空框，不是模拟结果。
-6. 三维表面到 `label_id` 的显式绑定尚无完成证据；本稿不把二维英文标注 JSON 等同于三维语义绑定。
-
-图 2 的 D 框内仍有原图文字 “Manual part delineation from scratch”。正文和图注已按用户澄清采用“人工直接制作并渲染”。后续应修改原图源文字再替换图片；本稿没有偷偷改动原图。图 2 的反馈框和箭头小字在双栏通栏尺寸下偏小，正式投稿前建议用原始可编辑图源增大字号并导出矢量 PDF。
-
-## 编译
-
-本机 PowerShell 在项目目录运行：
-
-```powershell
-.\build.ps1
-```
-
-或在支持中文字体的 TeX 环境中运行：
-
-```text
-xelatex main.tex
+```bash
+pdflatex main
 bibtex main
-xelatex main.tex
-xelatex main.tex
+pdflatex main
+pdflatex main
 ```
 
-Windows 优先使用宋体、黑体、楷体；其他平台回退 Fandol 字体。若字体缺失，请使用带中文支持的完整 TeX Live，或安装 Fandol 后编译。参考文献使用标准 `unsrt`，无需 natbib。首次生成参考文献后需重复编译以消除引用问号。
+The source builds with an unmodified TeX Live or MiKTeX installation. The preamble
+defines `\burl` as `\url`, because the bibliography style emits URLs whose
+underscores are otherwise interpreted in text mode.
 
-将工程上传 Overleaf 时选 XeLaTeX；不要上传本地 `build/node_modules` 链接。交付压缩包已排除缓存、节点依赖和临时预览。
+## Notes
+
+- Section numbering, table numbering, and the figure order above match `main.pdf`.
+- The reference annotations discussed in Section 5.1 were model-drafted and
+  manually corrected; see the Acknowledgements section for the annotator credit.
+- The code URL in the abstract points to this repository.
