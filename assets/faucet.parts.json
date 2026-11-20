@@ -23,7 +23,7 @@
     },
     {
       "id": 2,
-      "name": "Body",
+      "name": "Valve body",
       "nameSource": "Descriptive display label",
       "color": [
         33,
@@ -35,7 +35,7 @@
     },
     {
       "id": 3,
-      "name": "Connectors",
+      "name": "Connector nuts",
       "nameSource": "Descriptive display label",
       "color": [
         188,
@@ -47,7 +47,7 @@
     },
     {
       "id": 4,
-      "name": "Handle region",
+      "name": "Handle arm A",
       "nameSource": "Descriptive display label",
       "color": [
         79,
@@ -59,7 +59,7 @@
     },
     {
       "id": 5,
-      "name": "Handle / collar",
+      "name": "Handle arm & collar",
       "nameSource": "Descriptive display label",
       "color": [
         227,
@@ -71,8 +71,8 @@
     },
     {
       "id": 6,
-      "name": "Region 6",
-      "nameSource": "Region ID",
+      "name": "Handle hub & fragments",
+      "nameSource": "Descriptive display label",
       "color": [
         172,
         223,
@@ -95,8 +95,8 @@
     },
     {
       "id": 9,
-      "name": "Region 9",
-      "nameSource": "Region ID",
+      "name": "Body fragment",
+      "nameSource": "Descriptive display label",
       "color": [
         75,
         223,
@@ -107,8 +107,8 @@
     },
     {
       "id": 14,
-      "name": "Region 14",
-      "nameSource": "Region ID",
+      "name": "Surface sliver",
+      "nameSource": "Descriptive display label",
       "color": [
         139,
         219,
@@ -119,8 +119,8 @@
     },
     {
       "id": 15,
-      "name": "Region 15",
-      "nameSource": "Region ID",
+      "name": "Valve-stem fitting",
+      "nameSource": "Descriptive display label",
       "color": [
         89,
         215,
@@ -132,6 +132,6 @@
   ],
   "partition": "Surface regions reproduced with the pinned evaluation decoder on the unchanged archived output GLB.",
   "decoderSha256": "53bdda42991c2930cf41b2cec01e5352bcf75b60113fccc3f1d8159388b7372c",
-  "namePolicy": "Descriptive display names, when available, are not semantic ground truth. Other regions retain numeric IDs.",
+  "namePolicy": "Display names assigned after inspecting each isolated region and its position in the complete model. Mixed regions and small fragments are named as such. These are not semantic ground-truth labels or VLM proposal IDs.",
   "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the reproduced per-part export."
 }

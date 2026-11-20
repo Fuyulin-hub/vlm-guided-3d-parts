@@ -11,8 +11,8 @@
   "parts": [
     {
       "id": 1,
-      "name": "Region 1",
-      "nameSource": "Region ID",
+      "name": "Front wheel & frame A",
+      "nameSource": "Descriptive display label",
       "color": [
         221,
         94,
@@ -23,8 +23,8 @@
     },
     {
       "id": 2,
-      "name": "Region 2",
-      "nameSource": "Region ID",
+      "name": "Cabin & chassis",
+      "nameSource": "Descriptive display label",
       "color": [
         49,
         209,
@@ -35,8 +35,8 @@
     },
     {
       "id": 3,
-      "name": "Region 3",
-      "nameSource": "Region ID",
+      "name": "Front wheel & fender B",
+      "nameSource": "Descriptive display label",
       "color": [
         207,
         187,
@@ -47,8 +47,8 @@
     },
     {
       "id": 4,
-      "name": "Region 4",
-      "nameSource": "Region ID",
+      "name": "Rear wheel section A",
+      "nameSource": "Descriptive display label",
       "color": [
         67,
         193,
@@ -59,8 +59,8 @@
     },
     {
       "id": 5,
-      "name": "Region 5",
-      "nameSource": "Region ID",
+      "name": "Engine hood",
+      "nameSource": "Descriptive display label",
       "color": [
         239,
         99,
@@ -71,8 +71,8 @@
     },
     {
       "id": 6,
-      "name": "Region 6",
-      "nameSource": "Region ID",
+      "name": "Rear wheel & frame A",
+      "nameSource": "Descriptive display label",
       "color": [
         205,
         69,
@@ -83,8 +83,8 @@
     },
     {
       "id": 7,
-      "name": "Region 7",
-      "nameSource": "Region ID",
+      "name": "Rear frame & wheel B",
+      "nameSource": "Descriptive display label",
       "color": [
         50,
         210,
@@ -95,8 +95,8 @@
     },
     {
       "id": 8,
-      "name": "Region 8",
-      "nameSource": "Region ID",
+      "name": "Rear wheel section B",
+      "nameSource": "Descriptive display label",
       "color": [
         61,
         208,
@@ -107,8 +107,8 @@
     },
     {
       "id": 9,
-      "name": "Region 9",
-      "nameSource": "Region ID",
+      "name": "Rear tire patch B",
+      "nameSource": "Descriptive display label",
       "color": [
         208,
         145,
@@ -119,8 +119,8 @@
     },
     {
       "id": 10,
-      "name": "Region 10",
-      "nameSource": "Region ID",
+      "name": "Cabin roof & trim",
+      "nameSource": "Descriptive display label",
       "color": [
         116,
         224,
@@ -131,8 +131,8 @@
     },
     {
       "id": 11,
-      "name": "Region 11",
-      "nameSource": "Region ID",
+      "name": "Cab-side panel",
+      "nameSource": "Descriptive display label",
       "color": [
         107,
         176,
@@ -143,8 +143,8 @@
     },
     {
       "id": 12,
-      "name": "Region 12",
-      "nameSource": "Region ID",
+      "name": "Chassis panel",
+      "nameSource": "Descriptive display label",
       "color": [
         146,
         147,
@@ -155,8 +155,8 @@
     },
     {
       "id": 13,
-      "name": "Region 13",
-      "nameSource": "Region ID",
+      "name": "Side-rail fragments",
+      "nameSource": "Descriptive display label",
       "color": [
         80,
         219,
@@ -167,8 +167,8 @@
     },
     {
       "id": 16,
-      "name": "Region 16",
-      "nameSource": "Region ID",
+      "name": "Frame-edge fragments",
+      "nameSource": "Descriptive display label",
       "color": [
         141,
         211,
@@ -180,6 +180,6 @@
   ],
   "partition": "Surface regions reproduced with the pinned evaluation decoder on the unchanged archived output GLB.",
   "decoderSha256": "53bdda42991c2930cf41b2cec01e5352bcf75b60113fccc3f1d8159388b7372c",
-  "namePolicy": "Descriptive display names, when available, are not semantic ground truth. Other regions retain numeric IDs.",
+  "namePolicy": "Display names assigned after inspecting each isolated region and its position in the complete model. Mixed regions and small fragments are named as such. These are not semantic ground-truth labels or VLM proposal IDs.",
   "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the reproduced per-part export."
 }

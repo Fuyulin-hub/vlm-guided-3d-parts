@@ -12,7 +12,7 @@
     {
       "id": 1,
       "name": "Body",
-      "nameSource": "Descriptive figure annotation",
+      "nameSource": "Descriptive display label",
       "color": [
         37,
         192,
@@ -23,8 +23,8 @@
     },
     {
       "id": 2,
-      "name": "Leaves",
-      "nameSource": "Descriptive figure annotation",
+      "name": "Leaf crown",
+      "nameSource": "Descriptive display label",
       "color": [
         160,
         240,
@@ -35,8 +35,8 @@
     },
     {
       "id": 3,
-      "name": "Region 3",
-      "nameSource": "Region ID",
+      "name": "Side plate",
+      "nameSource": "Descriptive display label",
       "color": [
         128,
         192,
@@ -47,8 +47,8 @@
     },
     {
       "id": 4,
-      "name": "Region 4",
-      "nameSource": "Region ID",
+      "name": "Central fitting",
+      "nameSource": "Descriptive display label",
       "color": [
         112,
         65,
@@ -59,8 +59,8 @@
     },
     {
       "id": 5,
-      "name": "Region 5",
-      "nameSource": "Region ID",
+      "name": "Circular fittings A",
+      "nameSource": "Descriptive display label",
       "color": [
         224,
         62,
@@ -71,8 +71,8 @@
     },
     {
       "id": 6,
-      "name": "Region 6",
-      "nameSource": "Region ID",
+      "name": "Circular fittings B",
+      "nameSource": "Descriptive display label",
       "color": [
         212,
         139,
@@ -83,8 +83,8 @@
     },
     {
       "id": 7,
-      "name": "Region 7",
-      "nameSource": "Region ID",
+      "name": "Body fragment",
+      "nameSource": "Descriptive display label",
       "color": [
         97,
         211,
@@ -95,8 +95,8 @@
     },
     {
       "id": 9,
-      "name": "Region 9",
-      "nameSource": "Region ID",
+      "name": "Fitting fragments",
+      "nameSource": "Descriptive display label",
       "color": [
         80,
         173,
@@ -107,8 +107,8 @@
     },
     {
       "id": 14,
-      "name": "Region 14",
-      "nameSource": "Region ID",
+      "name": "Surface sliver",
+      "nameSource": "Descriptive display label",
       "color": [
         139,
         158,
@@ -119,6 +119,6 @@
     }
   ],
   "partition": "Recorded decoded surface regions from the evaluation export.",
-  "namePolicy": "Names describe selected visible regions in the manuscript figure; other regions retain their numeric IDs. These are not semantic ground-truth labels.",
+  "namePolicy": "Display names assigned after inspecting each isolated region and its position in the complete model. Mixed regions and small fragments are named as such. These are not semantic ground-truth labels or VLM proposal IDs.",
   "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the original per-part export."
 }

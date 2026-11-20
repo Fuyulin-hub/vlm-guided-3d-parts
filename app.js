@@ -108,7 +108,7 @@ async function loadSelected() {
     const metadata = (await modelData).find(entry => entry.id === model);
     if (request !== activeRequest) return;
     const [detailsResponse,labelsResponse] = await Promise.all([
-      fetch(`assets/${model}.parts.json`),fetch(`assets/${model}.face-ids.bin`)
+      fetch(`assets/${model}.parts.json?v=names-1`),fetch(`assets/${model}.face-ids.bin`)
     ]);
     if (!detailsResponse.ok || !labelsResponse.ok) throw new Error('Part details could not be loaded');
     const details = await detailsResponse.json();
