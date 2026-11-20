@@ -1,0 +1,100 @@
+{
+  "schema": "anchorpart.parts.v1",
+  "modelId": "chair",
+  "uid": "ac664e78a4d643238c7ea7bf97d819e5",
+  "meshSha256": "cdf6edebc978fb854f58b824f03ed55a5d93a5f14a6c8873b5e3084076794c19",
+  "bindingSha256": "7d2b410b3220bd6ff66a4e1e883d6ace2ac0d5ba474caf74bd9472e5587ea6c1",
+  "faceCount": 93221,
+  "vertexCount": 71717,
+  "faceLabelsFile": "assets/chair.face-ids.bin",
+  "partCount": 7,
+  "parts": [
+    {
+      "id": 1,
+      "name": "Frame",
+      "nameSource": "Descriptive figure annotation",
+      "color": [
+        100,
+        224,
+        35
+      ],
+      "faceCount": 26835,
+      "surfacePercent": 26.012244687534558
+    },
+    {
+      "id": 2,
+      "name": "Seat",
+      "nameSource": "Descriptive figure annotation",
+      "color": [
+        160,
+        240,
+        19
+      ],
+      "faceCount": 13748,
+      "surfacePercent": 25.226030989560982
+    },
+    {
+      "id": 3,
+      "name": "Backrest",
+      "nameSource": "Descriptive figure annotation",
+      "color": [
+        208,
+        198,
+        30
+      ],
+      "faceCount": 25358,
+      "surfacePercent": 23.32024069665584
+    },
+    {
+      "id": 4,
+      "name": "Base",
+      "nameSource": "Descriptive figure annotation",
+      "color": [
+        211,
+        41,
+        32
+      ],
+      "faceCount": 19503,
+      "surfacePercent": 18.866433511027587
+    },
+    {
+      "id": 5,
+      "name": "Region 5",
+      "nameSource": "Region ID",
+      "color": [
+        209,
+        161,
+        32
+      ],
+      "faceCount": 4041,
+      "surfacePercent": 3.8610208158597947
+    },
+    {
+      "id": 6,
+      "name": "Region 6",
+      "nameSource": "Region ID",
+      "color": [
+        222,
+        115,
+        45
+      ],
+      "faceCount": 3534,
+      "surfacePercent": 2.6141886598969744
+    },
+    {
+      "id": 7,
+      "name": "Region 7",
+      "nameSource": "Region ID",
+      "color": [
+        174,
+        213,
+        31
+      ],
+      "faceCount": 202,
+      "surfacePercent": 0.09984063946426706
+    }
+  ],
+  "partition": "Recorded decoded surface regions from the evaluation export.",
+  "namePolicy": "Names describe selected visible regions in the manuscript figure; other regions retain their numeric IDs. These are not semantic ground-truth labels.",
+  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the original per-part export."
+}

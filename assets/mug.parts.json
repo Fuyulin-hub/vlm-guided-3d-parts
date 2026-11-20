@@ -1,0 +1,40 @@
+{
+  "schema": "anchorpart.parts.v1",
+  "modelId": "mug",
+  "uid": "c666d90ad57e44f1baf90e5ec062a152",
+  "meshSha256": "05cce3f1ad310c365bf347b38415d21276f1608e51f18e1b9d043e410c8a923b",
+  "bindingSha256": "6f848640fcf394a8b5b44eda97557026c3afa3ca4c30f3976fe14e86d99b6ce7",
+  "faceCount": 98742,
+  "vertexCount": 56130,
+  "faceLabelsFile": "assets/mug.face-ids.bin",
+  "partCount": 2,
+  "parts": [
+    {
+      "id": 1,
+      "name": "Body",
+      "nameSource": "Descriptive figure annotation",
+      "color": [
+        208,
+        208,
+        16
+      ],
+      "faceCount": 72552,
+      "surfacePercent": 84.69883091800466
+    },
+    {
+      "id": 2,
+      "name": "Handle",
+      "nameSource": "Descriptive figure annotation",
+      "color": [
+        211,
+        129,
+        32
+      ],
+      "faceCount": 26190,
+      "surfacePercent": 15.301169081995344
+    }
+  ],
+  "partition": "Recorded decoded surface regions from the evaluation export.",
+  "namePolicy": "Names describe selected visible regions in the manuscript figure; other regions retain their numeric IDs. These are not semantic ground-truth labels.",
+  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the original per-part export."
+}

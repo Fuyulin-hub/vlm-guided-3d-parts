@@ -1,0 +1,124 @@
+{
+  "schema": "anchorpart.parts.v1",
+  "modelId": "pineapple",
+  "uid": "580ae02e1dc44207bb8d412e520d674b",
+  "meshSha256": "cc175bce5f89bcbb645c4aa2472e223d695daf88584cb80fd0ca2a06088937ae",
+  "bindingSha256": "f76a916a85bc02c8a96aec4fdfa27b8eb220cea19ab65ac9bdc150989404abb7",
+  "faceCount": 95897,
+  "vertexCount": 93795,
+  "faceLabelsFile": "assets/pineapple.face-ids.bin",
+  "partCount": 9,
+  "parts": [
+    {
+      "id": 1,
+      "name": "Body",
+      "nameSource": "Descriptive figure annotation",
+      "color": [
+        37,
+        192,
+        48
+      ],
+      "faceCount": 61712,
+      "surfacePercent": 61.81572892049779
+    },
+    {
+      "id": 2,
+      "name": "Leaves",
+      "nameSource": "Descriptive figure annotation",
+      "color": [
+        160,
+        240,
+        16
+      ],
+      "faceCount": 19917,
+      "surfacePercent": 24.172356120439254
+    },
+    {
+      "id": 3,
+      "name": "Region 3",
+      "nameSource": "Region ID",
+      "color": [
+        128,
+        192,
+        1
+      ],
+      "faceCount": 4514,
+      "surfacePercent": 6.150969363935195
+    },
+    {
+      "id": 4,
+      "name": "Region 4",
+      "nameSource": "Region ID",
+      "color": [
+        112,
+        65,
+        64
+      ],
+      "faceCount": 3585,
+      "surfacePercent": 2.307467434643991
+    },
+    {
+      "id": 5,
+      "name": "Region 5",
+      "nameSource": "Region ID",
+      "color": [
+        224,
+        62,
+        66
+      ],
+      "faceCount": 3417,
+      "surfacePercent": 2.7931343509402335
+    },
+    {
+      "id": 6,
+      "name": "Region 6",
+      "nameSource": "Region ID",
+      "color": [
+        212,
+        139,
+        16
+      ],
+      "faceCount": 2060,
+      "surfacePercent": 2.4407499122357885
+    },
+    {
+      "id": 7,
+      "name": "Region 7",
+      "nameSource": "Region ID",
+      "color": [
+        97,
+        211,
+        34
+      ],
+      "faceCount": 106,
+      "surfacePercent": 0.06301689204096321
+    },
+    {
+      "id": 9,
+      "name": "Region 9",
+      "nameSource": "Region ID",
+      "color": [
+        80,
+        173,
+        52
+      ],
+      "faceCount": 412,
+      "surfacePercent": 0.17568337515106489
+    },
+    {
+      "id": 14,
+      "name": "Region 14",
+      "nameSource": "Region ID",
+      "color": [
+        139,
+        158,
+        32
+      ],
+      "faceCount": 174,
+      "surfacePercent": 0.08089363011571983
+    }
+  ],
+  "partition": "Recorded decoded surface regions from the evaluation export.",
+  "namePolicy": "Names describe selected visible regions in the manuscript figure; other regions retain their numeric IDs. These are not semantic ground-truth labels.",
+  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the original per-part export."
+}
