@@ -12,11 +12,15 @@ const emptyPanel = document.querySelector('#inspector-empty');
 const isolate = document.querySelector('#isolate');
 const clearSelection = document.querySelector('#clear-selection');
 const tooltip = document.querySelector('#part-tooltip');
-const sizes = {chair:19,mug:15,pineapple:18,ladder:17};
-let selected = 'chair', viewer, activeRequest = 0, initialized = false;
-const modelData = fetch('assets/models.json').then(response => {
+const sizes = {pineapple:18,tractor:20,faucet:19,shovel:19};
+let selected = 'pineapple', viewer, activeRequest = 0, initialized = false;
+const modelData = fetch('assets/models.json?v=examples-2').then(response => {
   if (!response.ok) throw new Error('Model list unavailable');
   return response.json();
+}).then(models => {
+  for (const model of models) sizes[model.id] = Math.ceil(model.bytes / 1e6);
+  if (!initialized) loadButton.textContent = `Load 3D model · ${sizes[selected]} MB`;
+  return models;
 });
 
 function selectDetails(part) {

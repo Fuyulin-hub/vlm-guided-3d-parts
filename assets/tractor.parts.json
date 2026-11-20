@@ -1,0 +1,185 @@
+{
+  "schema": "anchorpart.parts.v1",
+  "modelId": "tractor",
+  "uid": "3ecdd1dd47a8402391ded8f8ab27c5b3",
+  "meshSha256": "364c5bf5e01362f7be009fe1397a7aa2ed954cfadb892d949bf6ed2fea54c75e",
+  "bindingSha256": "b35563cdd2d0dd30b32fc22e70f7b87f47638a5fa11b68ad235dfea7bfba98d8",
+  "faceCount": 96322,
+  "vertexCount": 94956,
+  "faceLabelsFile": "assets/tractor.face-ids.bin",
+  "partCount": 14,
+  "parts": [
+    {
+      "id": 1,
+      "name": "Region 1",
+      "nameSource": "Region ID",
+      "color": [
+        221,
+        94,
+        62
+      ],
+      "faceCount": 10119,
+      "surfacePercent": 11.641294160225447
+    },
+    {
+      "id": 2,
+      "name": "Region 2",
+      "nameSource": "Region ID",
+      "color": [
+        49,
+        209,
+        130
+      ],
+      "faceCount": 25294,
+      "surfacePercent": 22.641063971700298
+    },
+    {
+      "id": 3,
+      "name": "Region 3",
+      "nameSource": "Region ID",
+      "color": [
+        207,
+        187,
+        64
+      ],
+      "faceCount": 7967,
+      "surfacePercent": 10.576714789784031
+    },
+    {
+      "id": 4,
+      "name": "Region 4",
+      "nameSource": "Region ID",
+      "color": [
+        67,
+        193,
+        119
+      ],
+      "faceCount": 12634,
+      "surfacePercent": 12.181769178421252
+    },
+    {
+      "id": 5,
+      "name": "Region 5",
+      "nameSource": "Region ID",
+      "color": [
+        239,
+        99,
+        32
+      ],
+      "faceCount": 6486,
+      "surfacePercent": 6.256525585923184
+    },
+    {
+      "id": 6,
+      "name": "Region 6",
+      "nameSource": "Region ID",
+      "color": [
+        205,
+        69,
+        52
+      ],
+      "faceCount": 11315,
+      "surfacePercent": 10.811643788520147
+    },
+    {
+      "id": 7,
+      "name": "Region 7",
+      "nameSource": "Region ID",
+      "color": [
+        50,
+        210,
+        86
+      ],
+      "faceCount": 6251,
+      "surfacePercent": 6.701210569212124
+    },
+    {
+      "id": 8,
+      "name": "Region 8",
+      "nameSource": "Region ID",
+      "color": [
+        61,
+        208,
+        53
+      ],
+      "faceCount": 5302,
+      "surfacePercent": 7.138158970543864
+    },
+    {
+      "id": 9,
+      "name": "Region 9",
+      "nameSource": "Region ID",
+      "color": [
+        208,
+        145,
+        63
+      ],
+      "faceCount": 2872,
+      "surfacePercent": 3.5933271711515085
+    },
+    {
+      "id": 10,
+      "name": "Region 10",
+      "nameSource": "Region ID",
+      "color": [
+        116,
+        224,
+        50
+      ],
+      "faceCount": 3219,
+      "surfacePercent": 4.243129695561326
+    },
+    {
+      "id": 11,
+      "name": "Region 11",
+      "nameSource": "Region ID",
+      "color": [
+        107,
+        176,
+        120
+      ],
+      "faceCount": 1952,
+      "surfacePercent": 2.3080005031521402
+    },
+    {
+      "id": 12,
+      "name": "Region 12",
+      "nameSource": "Region ID",
+      "color": [
+        146,
+        147,
+        67
+      ],
+      "faceCount": 1893,
+      "surfacePercent": 1.3159623284642854
+    },
+    {
+      "id": 13,
+      "name": "Region 13",
+      "nameSource": "Region ID",
+      "color": [
+        80,
+        219,
+        91
+      ],
+      "faceCount": 644,
+      "surfacePercent": 0.35893358384107743
+    },
+    {
+      "id": 16,
+      "name": "Region 16",
+      "nameSource": "Region ID",
+      "color": [
+        141,
+        211,
+        50
+      ],
+      "faceCount": 374,
+      "surfacePercent": 0.23226570349931938
+    }
+  ],
+  "partition": "Surface regions reproduced with the pinned evaluation decoder on the unchanged archived output GLB.",
+  "decoderSha256": "53bdda42991c2930cf41b2cec01e5352bcf75b60113fccc3f1d8159388b7372c",
+  "namePolicy": "Descriptive display names, when available, are not semantic ground truth. Other regions retain numeric IDs.",
+  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the reproduced per-part export."
+}

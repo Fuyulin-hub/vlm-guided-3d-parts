@@ -1,0 +1,89 @@
+{
+  "schema": "anchorpart.parts.v1",
+  "modelId": "shovel",
+  "uid": "ca778065817340eea6d4ce12061f61d3",
+  "meshSha256": "b661696fe6c654c6f7abb9fd3dcf0685ba450f2db230f385e67235f5484c47a4",
+  "bindingSha256": "516fcae0a618e5c1dc2c351b294311d751b95e415defe57252c001905b92f41d",
+  "faceCount": 92532,
+  "vertexCount": 56136,
+  "faceLabelsFile": "assets/shovel.face-ids.bin",
+  "partCount": 6,
+  "parts": [
+    {
+      "id": 1,
+      "name": "Blade",
+      "nameSource": "Descriptive display label",
+      "color": [
+        255,
+        161,
+        38
+      ],
+      "faceCount": 26586,
+      "surfacePercent": 43.25321472287033
+    },
+    {
+      "id": 2,
+      "name": "Shaft",
+      "nameSource": "Descriptive display label",
+      "color": [
+        244,
+        210,
+        50
+      ],
+      "faceCount": 34850,
+      "surfacePercent": 26.784094643306982
+    },
+    {
+      "id": 3,
+      "name": "Socket",
+      "nameSource": "Descriptive display label",
+      "color": [
+        255,
+        84,
+        53
+      ],
+      "faceCount": 23873,
+      "surfacePercent": 23.765647685245607
+    },
+    {
+      "id": 4,
+      "name": "Grip",
+      "nameSource": "Descriptive display label",
+      "color": [
+        243,
+        50,
+        64
+      ],
+      "faceCount": 4791,
+      "surfacePercent": 4.884693514819757
+    },
+    {
+      "id": 5,
+      "name": "Region 5",
+      "nameSource": "Region ID",
+      "color": [
+        243,
+        129,
+        36
+      ],
+      "faceCount": 2261,
+      "surfacePercent": 1.2127656667949902
+    },
+    {
+      "id": 6,
+      "name": "Region 6",
+      "nameSource": "Region ID",
+      "color": [
+        85,
+        26,
+        16
+      ],
+      "faceCount": 171,
+      "surfacePercent": 0.09958376696232166
+    }
+  ],
+  "partition": "Surface regions reproduced with the pinned evaluation decoder on the unchanged archived output GLB.",
+  "decoderSha256": "53bdda42991c2930cf41b2cec01e5352bcf75b60113fccc3f1d8159388b7372c",
+  "namePolicy": "Descriptive display names, when available, are not semantic ground truth. Other regions retain numeric IDs.",
+  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the reproduced per-part export."
+}

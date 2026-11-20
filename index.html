@@ -9,10 +9,10 @@
   <meta property="og:description" content="Better part maps. Separate control of mask refinement and overlap assignment. Explore the method and interactive 3D results.">
   <meta property="og:image" content="https://fuyulin-hub.github.io/vlm-guided-3d-parts/assets/motivation.webp">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="style.css?v=parts-1">
+  <link rel="stylesheet" href="style.css?v=examples-2">
   <title>AnchorPart | 3D Part Segmentation</title>
   <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
-  <script type="module" src="app.js?v=parts-1"></script>
+  <script type="module" src="app.js?v=examples-2"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -33,16 +33,16 @@
       <div class="section-head"><div><p class="eyebrow">INTERACTIVE RESULTS</p><h2>Every part, a closer look.</h2></div><p>Click a part to highlight it and see its details.<br class="desktop"> Drag to rotate. Scroll or pinch to zoom.</p></div>
       <div class="explorer">
         <div class="samples" role="group" aria-label="Choose an object">
-          <button class="sample active" data-model="chair" aria-pressed="true"><img src="assets/chair.webp" alt="Chair input image" width="160" height="160"><span>Chair</span></button>
-          <button class="sample" data-model="mug" aria-pressed="false"><img src="assets/mug.webp" alt="Mug input image" loading="lazy" width="160" height="160"><span>Mug</span></button>
-          <button class="sample" data-model="pineapple" aria-pressed="false"><img src="assets/pineapple.webp" alt="Pineapple input image" loading="lazy" width="160" height="160"><span>Pineapple</span></button>
-          <button class="sample" data-model="ladder" aria-pressed="false"><img src="assets/ladder.webp" alt="Ladder input image" loading="lazy" width="160" height="160"><span>Ladder</span></button>
+          <button class="sample active" data-model="pineapple" aria-pressed="true"><img src="assets/pineapple.webp" alt="Pineapple input image" width="160" height="160"><span>Pineapple</span></button>
+          <button class="sample" data-model="tractor" aria-pressed="false"><img src="assets/tractor.webp" alt="Tractor input image" loading="lazy" width="160" height="160"><span>Tractor</span></button>
+          <button class="sample" data-model="faucet" aria-pressed="false"><img src="assets/faucet.webp" alt="Faucet input image" loading="lazy" width="160" height="160"><span>Faucet</span></button>
+          <button class="sample" data-model="shovel" aria-pressed="false"><img src="assets/shovel.webp" alt="Shovel input image" loading="lazy" width="160" height="160"><span>Shovel</span></button>
         </div>
         <div class="stage-shell">
-          <div class="stage-label"><span class="status-dot"></span>AnchorPart <span class="stage-object" id="object-label">/ Chair</span></div>
+          <div class="stage-label"><span class="status-dot"></span>AnchorPart <span class="stage-object" id="object-label">/ Pineapple</span></div>
           <div id="viewport" aria-label="Interactive 3D segmentation viewer"></div>
-          <div class="load-screen" id="load-screen"><div class="orbit-icon" aria-hidden="true">↻</div><h3 id="load-title">A closer look, from every angle.</h3><p id="load-status" role="status" aria-live="polite">Load the 3D result to start exploring.</p><button class="button primary" id="load-model">Load 3D model · 19 MB</button></div>
-          <div class="viewer-controls"><span id="interaction-hint">Click a part · Drag to rotate · Scroll to zoom</span><div><button id="rotate" aria-pressed="false" disabled>Auto-rotate</button><button id="reset" disabled>Reset view</button><a id="download" href="assets/chair.glb" download="anchorpart-chair.glb" aria-label="Download selected 3D model">Download ↗</a></div></div>
+          <div class="load-screen" id="load-screen"><div class="orbit-icon" aria-hidden="true">↻</div><h3 id="load-title">A closer look, from every angle.</h3><p id="load-status" role="status" aria-live="polite">Load the 3D result to start exploring.</p><button class="button primary" id="load-model">Load 3D model · 18 MB</button></div>
+          <div class="viewer-controls"><span id="interaction-hint">Click a part · Drag to rotate · Scroll to zoom</span><div><button id="rotate" aria-pressed="false" disabled>Auto-rotate</button><button id="reset" disabled>Reset view</button><a id="download" href="assets/pineapple.glb" download="anchorpart-pineapple.glb" aria-label="Download selected 3D model">Download ↗</a></div></div>
           <div id="part-tooltip" role="tooltip" hidden></div>
         </div>
         <aside class="inspector" aria-label="Part details">
@@ -57,7 +57,7 @@
           </div>
           <div class="parts-heading">PARTS <span>Click to select</span></div>
           <div id="parts-list" role="group" aria-label="Selectable parts"></div>
-          <p class="inspector-note">Names follow descriptive figure annotations. Other regions retain their numeric IDs.</p>
+          <p class="inspector-note">Names are descriptive display labels. Other regions retain their numeric IDs.</p>
         </aside>
       </div>
       <p class="caption">Selected qualitative examples from Objaverse, using AnchorPart guidance with SegviGen. Colors distinguish regions within each object; they do not encode a shared semantic label. This browser viewer displays precomputed results.</p>
