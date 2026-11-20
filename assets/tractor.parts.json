@@ -11,175 +11,384 @@
   "parts": [
     {
       "id": 1,
-      "name": "Front wheel & frame A",
-      "nameSource": "Descriptive display label",
+      "name": "Left front headlight",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         221,
         94,
         62
       ],
       "faceCount": 10119,
-      "surfacePercent": 11.641294160225447
+      "surfacePercent": 11.641294160225447,
+      "qwen": {
+        "matched": true,
+        "partId": "part_07",
+        "labelId": 2,
+        "sourceViewSupport": 0.8600565728747953
+      }
     },
     {
       "id": 2,
-      "name": "Cabin & chassis",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 2",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         49,
         209,
         130
       ],
       "faceCount": 25294,
-      "surfacePercent": 22.641063971700298
+      "surfacePercent": 22.641063971700298,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 3,
-      "name": "Front wheel & fender B",
-      "nameSource": "Descriptive display label",
+      "name": "Left front wheel",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         207,
         187,
         64
       ],
       "faceCount": 7967,
-      "surfacePercent": 10.576714789784031
+      "surfacePercent": 10.576714789784031,
+      "qwen": {
+        "matched": true,
+        "partId": "part_05",
+        "labelId": 4,
+        "sourceViewSupport": 0.9084259498578444
+      }
     },
     {
       "id": 4,
-      "name": "Rear wheel section A",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 4",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         67,
         193,
         119
       ],
       "faceCount": 12634,
-      "surfacePercent": 12.181769178421252
+      "surfacePercent": 12.181769178421252,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 5,
-      "name": "Engine hood",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 5",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         239,
         99,
         32
       ],
       "faceCount": 6486,
-      "surfacePercent": 6.256525585923184
+      "surfacePercent": 6.256525585923184,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 6,
-      "name": "Rear wheel & frame A",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 6",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         205,
         69,
         52
       ],
       "faceCount": 11315,
-      "surfacePercent": 10.811643788520147
+      "surfacePercent": 10.811643788520147,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 7,
-      "name": "Rear frame & wheel B",
-      "nameSource": "Descriptive display label",
+      "name": "Right front wheel",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         50,
         210,
         86
       ],
       "faceCount": 6251,
-      "surfacePercent": 6.701210569212124
+      "surfacePercent": 6.701210569212124,
+      "qwen": {
+        "matched": true,
+        "partId": "part_06",
+        "labelId": 6,
+        "sourceViewSupport": 0.7433290978398983
+      }
     },
     {
       "id": 8,
-      "name": "Rear wheel section B",
-      "nameSource": "Descriptive display label",
+      "name": "Right front wheel",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         61,
         208,
         53
       ],
       "faceCount": 5302,
-      "surfacePercent": 7.138158970543864
+      "surfacePercent": 7.138158970543864,
+      "qwen": {
+        "matched": true,
+        "partId": "part_06",
+        "labelId": 6,
+        "sourceViewSupport": 0.9032341193145214
+      }
     },
     {
       "id": 9,
-      "name": "Rear tire patch B",
-      "nameSource": "Descriptive display label",
+      "name": "Front bumper",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         208,
         145,
         63
       ],
       "faceCount": 2872,
-      "surfacePercent": 3.5933271711515085
+      "surfacePercent": 3.5933271711515085,
+      "qwen": {
+        "matched": true,
+        "partId": "part_04",
+        "labelId": 3,
+        "sourceViewSupport": 0.9364817001180638
+      }
     },
     {
       "id": 10,
-      "name": "Cabin roof & trim",
-      "nameSource": "Descriptive display label",
+      "name": "Roof",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         116,
         224,
         50
       ],
       "faceCount": 3219,
-      "surfacePercent": 4.243129695561326
+      "surfacePercent": 4.243129695561326,
+      "qwen": {
+        "matched": true,
+        "partId": "part_01",
+        "labelId": 5,
+        "sourceViewSupport": 0.8227982095330268
+      }
     },
     {
       "id": 11,
-      "name": "Cab-side panel",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 11",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         107,
         176,
         120
       ],
       "faceCount": 1952,
-      "surfacePercent": 2.3080005031521402
+      "surfacePercent": 2.3080005031521402,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 12,
-      "name": "Chassis panel",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 12",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         146,
         147,
         67
       ],
       "faceCount": 1893,
-      "surfacePercent": 1.3159623284642854
+      "surfacePercent": 1.3159623284642854,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 13,
-      "name": "Side-rail fragments",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 13",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         80,
         219,
         91
       ],
       "faceCount": 644,
-      "surfacePercent": 0.35893358384107743
+      "surfacePercent": 0.35893358384107743,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 16,
-      "name": "Frame-edge fragments",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 16",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         141,
         211,
         50
       ],
       "faceCount": 374,
-      "surfacePercent": 0.23226570349931938
+      "surfacePercent": 0.23226570349931938,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     }
   ],
   "partition": "Surface regions reproduced with the pinned evaluation decoder on the unchanged archived output GLB.",
   "decoderSha256": "53bdda42991c2930cf41b2cec01e5352bcf75b60113fccc3f1d8159388b7372c",
-  "namePolicy": "Display names assigned after inspecting each isolated region and its position in the complete model. Mixed regions and small fragments are named as such. These are not semantic ground-truth labels or VLM proposal IDs.",
-  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the reproduced per-part export."
+  "namePolicy": "Names are copied verbatim from archived Qwen3-VL annotations. Unchanged decoded 3D regions are associated using overlap with the source-view 2D guidance; regions without a reliable association remain unmatched. The association is not semantic ground truth.",
+  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the reproduced per-part export.",
+  "qwenAnnotations": {
+    "schema": "anchorpart.qwen-labels.v1",
+    "modelId": "tractor",
+    "uid": "3ecdd1dd47a8402391ded8f8ab27c5b3",
+    "objectName": "Green tractor",
+    "source": "Archived Qwen3-VL planning output; retained parts from the final 2D guidance annotation.",
+    "rawResponseSha256": "1db8c0917481b6879f38c7f8330959fa93caab18c5858d01485ec19d99e09888",
+    "annotationSha256": "7547d91baefd5ac036d93f4a949195b06d26da66fa72097b4723a6e2442d818d",
+    "guidanceSha256": "4cc83ae6098b3af7dfb4bb48ef2372ae5d5c17b70a0e40db93de010cf2ae7915",
+    "parts": [
+      {
+        "partId": "part_08",
+        "labelId": 1,
+        "name": "Right front headlight",
+        "color": [
+          229,
+          81,
+          22
+        ]
+      },
+      {
+        "partId": "part_07",
+        "labelId": 2,
+        "name": "Left front headlight",
+        "color": [
+          229,
+          140,
+          22
+        ]
+      },
+      {
+        "partId": "part_04",
+        "labelId": 3,
+        "name": "Front bumper",
+        "color": [
+          229,
+          199,
+          22
+        ]
+      },
+      {
+        "partId": "part_05",
+        "labelId": 4,
+        "name": "Left front wheel",
+        "color": [
+          199,
+          229,
+          22
+        ]
+      },
+      {
+        "partId": "part_01",
+        "labelId": 5,
+        "name": "Roof",
+        "color": [
+          140,
+          229,
+          22
+        ]
+      },
+      {
+        "partId": "part_06",
+        "labelId": 6,
+        "name": "Right front wheel",
+        "color": [
+          81,
+          229,
+          22
+        ]
+      },
+      {
+        "partId": "part_14",
+        "labelId": 7,
+        "name": "Right front wheel hub",
+        "color": [
+          22,
+          229,
+          22
+        ]
+      },
+      {
+        "partId": "part_10",
+        "labelId": 8,
+        "name": "Right front bumper trim",
+        "color": [
+          22,
+          229,
+          81
+        ]
+      },
+      {
+        "partId": "part_03",
+        "labelId": 9,
+        "name": "Side panel of cab",
+        "color": [
+          22,
+          229,
+          140
+        ]
+      },
+      {
+        "partId": "part_02",
+        "labelId": 10,
+        "name": "Front windshield",
+        "color": [
+          22,
+          229,
+          199
+        ]
+      }
+    ]
+  },
+  "qwenAssociation": {
+    "method": "frozen-source-view-overlap-v1",
+    "minimumVisiblePixels": 32,
+    "minimumSupport": 0.65,
+    "minimumMargin": 0.2,
+    "meshSha256": "364c5bf5e01362f7be009fe1397a7aa2ed954cfadb892d949bf6ed2fea54c75e",
+    "bindingSha256": "b35563cdd2d0dd30b32fc22e70f7b87f47638a5fa11b68ad235dfea7bfba98d8",
+    "annotationSha256": "7547d91baefd5ac036d93f4a949195b06d26da66fa72097b4723a6e2442d818d",
+    "guidanceSha256": "4cc83ae6098b3af7dfb4bb48ef2372ae5d5c17b70a0e40db93de010cf2ae7915",
+    "cameraSha256": "6736abd87a455c3de4b6a0dbd7967ac9bf8b976e26ca72c65078ac74462eea8d",
+    "transformSha256": "2e204b32a1ebfb753f1ee487b7321060f8776fea6f900cadfcb62dc616efe55d",
+    "projectionAgreementWithArchive": 0.9999669538534167
+  }
 }

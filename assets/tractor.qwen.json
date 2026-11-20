@@ -1,0 +1,112 @@
+{
+  "schema": "anchorpart.qwen-labels.v1",
+  "modelId": "tractor",
+  "uid": "3ecdd1dd47a8402391ded8f8ab27c5b3",
+  "objectName": "Green tractor",
+  "source": "Archived Qwen3-VL planning output; retained parts from the final 2D guidance annotation.",
+  "rawResponseSha256": "1db8c0917481b6879f38c7f8330959fa93caab18c5858d01485ec19d99e09888",
+  "annotationSha256": "7547d91baefd5ac036d93f4a949195b06d26da66fa72097b4723a6e2442d818d",
+  "guidanceSha256": "4cc83ae6098b3af7dfb4bb48ef2372ae5d5c17b70a0e40db93de010cf2ae7915",
+  "parts": [
+    {
+      "partId": "part_08",
+      "labelId": 1,
+      "name": "Right front headlight",
+      "color": [
+        229,
+        81,
+        22
+      ]
+    },
+    {
+      "partId": "part_07",
+      "labelId": 2,
+      "name": "Left front headlight",
+      "color": [
+        229,
+        140,
+        22
+      ]
+    },
+    {
+      "partId": "part_04",
+      "labelId": 3,
+      "name": "Front bumper",
+      "color": [
+        229,
+        199,
+        22
+      ]
+    },
+    {
+      "partId": "part_05",
+      "labelId": 4,
+      "name": "Left front wheel",
+      "color": [
+        199,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_01",
+      "labelId": 5,
+      "name": "Roof",
+      "color": [
+        140,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_06",
+      "labelId": 6,
+      "name": "Right front wheel",
+      "color": [
+        81,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_14",
+      "labelId": 7,
+      "name": "Right front wheel hub",
+      "color": [
+        22,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_10",
+      "labelId": 8,
+      "name": "Right front bumper trim",
+      "color": [
+        22,
+        229,
+        81
+      ]
+    },
+    {
+      "partId": "part_03",
+      "labelId": 9,
+      "name": "Side panel of cab",
+      "color": [
+        22,
+        229,
+        140
+      ]
+    },
+    {
+      "partId": "part_02",
+      "labelId": 10,
+      "name": "Front windshield",
+      "color": [
+        22,
+        229,
+        199
+      ]
+    }
+  ]
+}

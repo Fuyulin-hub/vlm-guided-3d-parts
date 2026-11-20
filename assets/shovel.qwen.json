@@ -1,0 +1,62 @@
+{
+  "schema": "anchorpart.qwen-labels.v1",
+  "modelId": "shovel",
+  "uid": "ca778065817340eea6d4ce12061f61d3",
+  "objectName": "Antique pipe",
+  "source": "Archived Qwen3-VL planning output; retained parts from the final 2D guidance annotation.",
+  "rawResponseSha256": "7f8c5ed54490877b669c9619bdb499f8c7adbe7f5791e08f1b3854f9f1b935e9",
+  "annotationSha256": "97efa4b2332234e225a66c68c6da0a260913650cea4e093999742d80c5f69cfa",
+  "guidanceSha256": "6e68d40e791de46c47f0f51a70c9125fc66be8913eae78827d244ffb19e8b1d4",
+  "parts": [
+    {
+      "partId": "part_02",
+      "labelId": 1,
+      "name": "Pipe mouth",
+      "color": [
+        229,
+        81,
+        22
+      ]
+    },
+    {
+      "partId": "part_04",
+      "labelId": 2,
+      "name": "Pipe bowl",
+      "color": [
+        229,
+        140,
+        22
+      ]
+    },
+    {
+      "partId": "part_06",
+      "labelId": 3,
+      "name": "Base",
+      "color": [
+        229,
+        199,
+        22
+      ]
+    },
+    {
+      "partId": "part_03",
+      "labelId": 4,
+      "name": "Pipe stem",
+      "color": [
+        199,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_01",
+      "labelId": 5,
+      "name": "Pipe body",
+      "color": [
+        140,
+        229,
+        22
+      ]
+    }
+  ]
+}

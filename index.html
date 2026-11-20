@@ -9,10 +9,10 @@
   <meta property="og:description" content="Better part maps. Separate control of mask refinement and overlap assignment. Explore the method and interactive 3D results.">
   <meta property="og:image" content="https://fuyulin-hub.github.io/vlm-guided-3d-parts/assets/motivation.webp">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="style.css?v=examples-2">
+  <link rel="stylesheet" href="style.css?v=qwen-1">
   <title>AnchorPart | 3D Part Segmentation</title>
   <script type="importmap">{"imports":{"three":"./vendor/three/build/three.module.js","three/addons/":"./vendor/three/examples/jsm/"}}</script>
-  <script type="module" src="app.js?v=names-1"></script>
+  <script type="module" src="app.js?v=qwen-1"></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -36,7 +36,7 @@
           <button class="sample active" data-model="pineapple" aria-pressed="true"><img src="assets/pineapple.webp" alt="Pineapple input image" width="160" height="160"><span>Pineapple</span></button>
           <button class="sample" data-model="tractor" aria-pressed="false"><img src="assets/tractor.webp" alt="Tractor input image" loading="lazy" width="160" height="160"><span>Tractor</span></button>
           <button class="sample" data-model="faucet" aria-pressed="false"><img src="assets/faucet.webp" alt="Faucet input image" loading="lazy" width="160" height="160"><span>Faucet</span></button>
-          <button class="sample" data-model="shovel" aria-pressed="false"><img src="assets/shovel.webp" alt="Shovel input image" loading="lazy" width="160" height="160"><span>Shovel</span></button>
+          <button class="sample" data-model="shovel" aria-pressed="false"><img src="assets/shovel.webp" alt="Antique pipe input image" loading="lazy" width="160" height="160"><span>Pipe</span></button>
         </div>
         <div class="stage-shell">
           <div class="stage-label"><span class="status-dot"></span>AnchorPart <span class="stage-object" id="object-label">/ Pineapple</span></div>
@@ -51,13 +51,14 @@
           <div id="selected-details" hidden aria-live="polite" aria-atomic="true">
             <div class="selected-name"><span id="selected-swatch" class="swatch"></span><h4 id="part-name"></h4></div>
             <p id="part-name-source"></p>
-            <dl class="part-metrics"><div><dt>Region ID</dt><dd id="part-id"></dd></div><div><dt>Surface share</dt><dd id="part-area"></dd></div><div><dt>Mesh faces</dt><dd id="part-faces"></dd></div><div><dt>Region color</dt><dd id="part-color"></dd></div></dl>
+            <dl class="part-metrics"><div><dt>Region ID</dt><dd id="part-id"></dd></div><div id="qwen-label-row" hidden><dt>Qwen part / label</dt><dd id="qwen-label-id"></dd></div><div><dt>Surface share</dt><dd id="part-area"></dd></div><div><dt>Mesh faces</dt><dd id="part-faces"></dd></div><div><dt>Region color</dt><dd id="part-color"></dd></div></dl>
             <p class="metric-note">Surface share is the fraction of this object's total mesh area.</p>
             <div class="selection-actions"><button id="isolate" aria-pressed="false" disabled>Isolate part</button><button id="clear-selection" disabled>Show all</button></div>
           </div>
           <div class="parts-heading">PARTS <span>Click to select</span></div>
           <div id="parts-list" role="group" aria-label="Selectable parts"></div>
-          <p class="inspector-note">Names describe the displayed regions, including mixed parts and small surface fragments.</p>
+          <p class="inspector-note">Names come from the original Qwen3-VL annotations. Regions without a reliable source-view association remain unmatched.</p>
+          <details class="qwen-records" id="qwen-records" hidden><summary>Original Qwen labels <span id="qwen-label-count"></span></summary><img id="qwen-guidance" alt="Original color-coded Qwen and SAM 2 guidance map" width="1024" height="1024"><ul id="qwen-labels"></ul><a id="qwen-download" download>Download labels ↗</a></details>
         </aside>
       </div>
       <p class="caption">Selected qualitative examples from Objaverse, using AnchorPart guidance with SegviGen. Colors distinguish regions within each object; they do not encode a shared semantic label. This browser viewer displays precomputed results.</p>

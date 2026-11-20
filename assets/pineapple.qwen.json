@@ -1,0 +1,82 @@
+{
+  "schema": "anchorpart.qwen-labels.v1",
+  "modelId": "pineapple",
+  "uid": "580ae02e1dc44207bb8d412e520d674b",
+  "objectName": "Carrot-shaped toy",
+  "source": "Archived Qwen3-VL planning output; retained parts from the final 2D guidance annotation.",
+  "rawResponseSha256": "333828064b2046c6dbf4d3decf6c1e9fbaac85eec7251bc2befc14c3e19ea5c2",
+  "annotationSha256": "e29131478009672c534ee2d71d9f905e2afd0f9ed6b4327c7e8550c2808453dd",
+  "guidanceSha256": "3f1340316ecd3c848876675219894d3c033fb201ab6d97d020f693ab4a363295",
+  "parts": [
+    {
+      "partId": "part_06",
+      "labelId": 1,
+      "name": "Black small component",
+      "color": [
+        229,
+        81,
+        22
+      ]
+    },
+    {
+      "partId": "part_05",
+      "labelId": 2,
+      "name": "Left upper blue circular decoration",
+      "color": [
+        229,
+        140,
+        22
+      ]
+    },
+    {
+      "partId": "part_04",
+      "labelId": 3,
+      "name": "Right blue circular decoration",
+      "color": [
+        229,
+        199,
+        22
+      ]
+    },
+    {
+      "partId": "part_03",
+      "labelId": 4,
+      "name": "Left blue circular decoration",
+      "color": [
+        199,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_07",
+      "labelId": 5,
+      "name": "Ground strip",
+      "color": [
+        140,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_02",
+      "labelId": 6,
+      "name": "Top green leaves",
+      "color": [
+        81,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_01",
+      "labelId": 7,
+      "name": "Main body",
+      "color": [
+        22,
+        229,
+        22
+      ]
+    }
+  ]
+}

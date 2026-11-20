@@ -14,7 +14,7 @@ const clearSelection = document.querySelector('#clear-selection');
 const tooltip = document.querySelector('#part-tooltip');
 const sizes = {pineapple:18,tractor:20,faucet:19,shovel:19};
 let selected = 'pineapple', viewer, activeRequest = 0, initialized = false;
-const modelData = fetch('assets/models.json?v=examples-2').then(response => {
+const modelData = fetch('assets/models.json?v=qwen-1').then(response => {
   if (!response.ok) throw new Error('Model list unavailable');
   return response.json();
 }).then(models => {
@@ -39,6 +39,9 @@ function selectDetails(part) {
   if (!part) return;
   document.querySelector('#part-name').textContent = part.name;
   document.querySelector('#part-name-source').textContent = part.nameSource;
+  const qwenRow = document.querySelector('#qwen-label-row');
+  qwenRow.hidden = !part.qwen?.matched;
+  document.querySelector('#qwen-label-id').textContent = part.qwen?.matched ? `${part.qwen.partId} / ${part.qwen.labelId}` : '';
   document.querySelector('#selected-swatch').style.background = `rgb(${part.color.join(',')})`;
   document.querySelector('#part-id').textContent = String(part.id).padStart(2,'0');
   document.querySelector('#part-area').textContent = `${part.surfacePercent.toFixed(2)}%`;
@@ -65,6 +68,19 @@ function renderParts(details) {
     button.addEventListener('click',()=>viewer.selectPart(part.id));
     partsList.appendChild(button);
   }
+  const qwenList=document.querySelector('#qwen-labels');
+  qwenList.replaceChildren();
+  for (const part of details.qwenAnnotations.parts) {
+    const row=document.createElement('li');
+    const swatch=document.createElement('span');swatch.className='swatch';swatch.style.background=`rgb(${part.color.join(',')})`;
+    const label=document.createElement('span');label.textContent=part.name;
+    const id=document.createElement('small');id.textContent=`${part.partId} · label ${part.labelId}`;
+    label.append(id);row.append(swatch,label);qwenList.append(row);
+  }
+  document.querySelector('#qwen-label-count').textContent=`(${details.qwenAnnotations.parts.length})`;
+  document.querySelector('#qwen-guidance').src=`assets/${details.modelId}.qwen-guidance.png`;
+  document.querySelector('#qwen-download').href=`assets/${details.modelId}.qwen.json`;
+  document.querySelector('#qwen-records').hidden=false;
   selectDetails(null);
 }
 
@@ -95,6 +111,7 @@ async function loadSelected() {
   loadButton.hidden = true;
   rotate.disabled = reset.disabled = true;
   partsList.replaceChildren(); selectDetails(null);
+  document.querySelector('#qwen-records').hidden=true;
   document.querySelector('#parts-count').textContent = 'Loading…';
   document.querySelector('#inspector-message').textContent = 'Preparing the part details…';
   delete document.querySelector('#viewport').dataset.loaded;
@@ -108,7 +125,7 @@ async function loadSelected() {
     const metadata = (await modelData).find(entry => entry.id === model);
     if (request !== activeRequest) return;
     const [detailsResponse,labelsResponse] = await Promise.all([
-      fetch(`assets/${model}.parts.json?v=names-1`),fetch(`assets/${model}.face-ids.bin`)
+      fetch(`assets/${model}.parts.json?v=qwen-1`),fetch(`assets/${model}.face-ids.bin`)
     ]);
     if (!detailsResponse.ok || !labelsResponse.ok) throw new Error('Part details could not be loaded');
     const details = await detailsResponse.json();

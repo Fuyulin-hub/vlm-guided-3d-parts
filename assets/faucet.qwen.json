@@ -1,0 +1,92 @@
+{
+  "schema": "anchorpart.qwen-labels.v1",
+  "modelId": "faucet",
+  "uid": "979b7dec28df4db0b493054afbfbad1c",
+  "objectName": "faucet",
+  "source": "Archived Qwen3-VL planning output; retained parts from the final 2D guidance annotation.",
+  "rawResponseSha256": "61e1cdad5a90cf45764549246a56273b02c0a64a29c148e2f45946ab7ab69e3a",
+  "annotationSha256": "27d554063ef05e903f622977303b77f7325004faafefe6ad5c58b2f9d5fcd959",
+  "guidanceSha256": "20a4635d12a2f48e9ba797146341226d0dcec97cb40af5568fb9d2b2aceb48f2",
+  "parts": [
+    {
+      "partId": "part_08",
+      "labelId": 1,
+      "name": "valve base",
+      "color": [
+        229,
+        81,
+        22
+      ]
+    },
+    {
+      "partId": "part_07",
+      "labelId": 2,
+      "name": "valve side",
+      "color": [
+        229,
+        140,
+        22
+      ]
+    },
+    {
+      "partId": "part_04",
+      "labelId": 3,
+      "name": "handle connector",
+      "color": [
+        229,
+        199,
+        22
+      ]
+    },
+    {
+      "partId": "part_06",
+      "labelId": 4,
+      "name": "valve decorative strip",
+      "color": [
+        199,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_05",
+      "labelId": 5,
+      "name": "valve body",
+      "color": [
+        140,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_03",
+      "labelId": 6,
+      "name": "handle",
+      "color": [
+        81,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_02",
+      "labelId": 7,
+      "name": "spout",
+      "color": [
+        22,
+        229,
+        22
+      ]
+    },
+    {
+      "partId": "part_01",
+      "labelId": 8,
+      "name": "body",
+      "color": [
+        22,
+        229,
+        81
+      ]
+    }
+  ]
+}

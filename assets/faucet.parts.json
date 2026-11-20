@@ -11,127 +11,292 @@
   "parts": [
     {
       "id": 1,
-      "name": "Spout",
-      "nameSource": "Descriptive display label",
+      "name": "spout",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         48,
         208,
         65
       ],
       "faceCount": 13998,
-      "surfacePercent": 24.878876593246364
+      "surfacePercent": 24.878876593246364,
+      "qwen": {
+        "matched": true,
+        "partId": "part_02",
+        "labelId": 7,
+        "sourceViewSupport": 0.980630249365193
+      }
     },
     {
       "id": 2,
-      "name": "Valve body",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 2",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         33,
         224,
         119
       ],
       "faceCount": 34119,
-      "surfacePercent": 27.01216089489194
+      "surfacePercent": 27.01216089489194,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 3,
-      "name": "Connector nuts",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 3",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         188,
         223,
         34
       ],
       "faceCount": 23124,
-      "surfacePercent": 23.107402576781823
+      "surfacePercent": 23.107402576781823,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 4,
-      "name": "Handle arm A",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 4",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         79,
         236,
         37
       ],
       "faceCount": 7706,
-      "surfacePercent": 7.803697223132944
+      "surfacePercent": 7.803697223132944,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 5,
-      "name": "Handle arm & collar",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 5",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         227,
         129,
         50
       ],
       "faceCount": 6814,
-      "surfacePercent": 7.4967923837143315
+      "surfacePercent": 7.4967923837143315,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 6,
-      "name": "Handle hub & fragments",
-      "nameSource": "Descriptive display label",
+      "name": "handle connector",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         172,
         223,
         58
       ],
       "faceCount": 5034,
-      "surfacePercent": 4.410755591715769
+      "surfacePercent": 4.410755591715769,
+      "qwen": {
+        "matched": true,
+        "partId": "part_04",
+        "labelId": 3,
+        "sourceViewSupport": 0.9111791730474732
+      }
     },
     {
       "id": 7,
-      "name": "Inlet ring",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 7",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         232,
         157,
         33
       ],
       "faceCount": 3844,
-      "surfacePercent": 4.2359428042443374
+      "surfacePercent": 4.2359428042443374,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 9,
-      "name": "Body fragment",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 9",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         75,
         223,
         100
       ],
       "faceCount": 106,
-      "surfacePercent": 0.044798159400289264
+      "surfacePercent": 0.044798159400289264,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 14,
-      "name": "Surface sliver",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 14",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         139,
         219,
         37
       ],
       "faceCount": 100,
-      "surfacePercent": 0.022748759955356274
+      "surfacePercent": 0.022748759955356274,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 15,
-      "name": "Valve-stem fitting",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 15",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         89,
         215,
         55
       ],
       "faceCount": 2367,
-      "surfacePercent": 0.9868250129168431
+      "surfacePercent": 0.9868250129168431,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     }
   ],
   "partition": "Surface regions reproduced with the pinned evaluation decoder on the unchanged archived output GLB.",
   "decoderSha256": "53bdda42991c2930cf41b2cec01e5352bcf75b60113fccc3f1d8159388b7372c",
-  "namePolicy": "Display names assigned after inspecting each isolated region and its position in the complete model. Mixed regions and small fragments are named as such. These are not semantic ground-truth labels or VLM proposal IDs.",
-  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the reproduced per-part export."
+  "namePolicy": "Names are copied verbatim from archived Qwen3-VL annotations. Unchanged decoded 3D regions are associated using overlap with the source-view 2D guidance; regions without a reliable association remain unmatched. The association is not semantic ground truth.",
+  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the reproduced per-part export.",
+  "qwenAnnotations": {
+    "schema": "anchorpart.qwen-labels.v1",
+    "modelId": "faucet",
+    "uid": "979b7dec28df4db0b493054afbfbad1c",
+    "objectName": "faucet",
+    "source": "Archived Qwen3-VL planning output; retained parts from the final 2D guidance annotation.",
+    "rawResponseSha256": "61e1cdad5a90cf45764549246a56273b02c0a64a29c148e2f45946ab7ab69e3a",
+    "annotationSha256": "27d554063ef05e903f622977303b77f7325004faafefe6ad5c58b2f9d5fcd959",
+    "guidanceSha256": "20a4635d12a2f48e9ba797146341226d0dcec97cb40af5568fb9d2b2aceb48f2",
+    "parts": [
+      {
+        "partId": "part_08",
+        "labelId": 1,
+        "name": "valve base",
+        "color": [
+          229,
+          81,
+          22
+        ]
+      },
+      {
+        "partId": "part_07",
+        "labelId": 2,
+        "name": "valve side",
+        "color": [
+          229,
+          140,
+          22
+        ]
+      },
+      {
+        "partId": "part_04",
+        "labelId": 3,
+        "name": "handle connector",
+        "color": [
+          229,
+          199,
+          22
+        ]
+      },
+      {
+        "partId": "part_06",
+        "labelId": 4,
+        "name": "valve decorative strip",
+        "color": [
+          199,
+          229,
+          22
+        ]
+      },
+      {
+        "partId": "part_05",
+        "labelId": 5,
+        "name": "valve body",
+        "color": [
+          140,
+          229,
+          22
+        ]
+      },
+      {
+        "partId": "part_03",
+        "labelId": 6,
+        "name": "handle",
+        "color": [
+          81,
+          229,
+          22
+        ]
+      },
+      {
+        "partId": "part_02",
+        "labelId": 7,
+        "name": "spout",
+        "color": [
+          22,
+          229,
+          22
+        ]
+      },
+      {
+        "partId": "part_01",
+        "labelId": 8,
+        "name": "body",
+        "color": [
+          22,
+          229,
+          81
+        ]
+      }
+    ]
+  },
+  "qwenAssociation": {
+    "method": "frozen-source-view-overlap-v1",
+    "minimumVisiblePixels": 32,
+    "minimumSupport": 0.65,
+    "minimumMargin": 0.2,
+    "meshSha256": "4fb29d817851fd2d8ae346b9323833ba336a8766be12959fe6f0df2168722c2c",
+    "bindingSha256": "0466c165e7d2cbafb57b476acaed9fd225388331f5705f9696fc1e0ec79142e0",
+    "annotationSha256": "27d554063ef05e903f622977303b77f7325004faafefe6ad5c58b2f9d5fcd959",
+    "guidanceSha256": "20a4635d12a2f48e9ba797146341226d0dcec97cb40af5568fb9d2b2aceb48f2",
+    "cameraSha256": "5a2f18bf07383ca3d63feeafaf2b3213e16faca862d9c72d0a1849968bb4e43a",
+    "transformSha256": "a03ee0c6a1ba1d405a78ff2fcfe69ee5d6d2df293c2ab5e86b156f2c4cc0f58e",
+    "projectionAgreementWithArchive": 0.9999706535455408
+  }
 }

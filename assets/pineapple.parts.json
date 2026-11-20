@@ -11,114 +11,263 @@
   "parts": [
     {
       "id": 1,
-      "name": "Body",
-      "nameSource": "Descriptive display label",
+      "name": "Main body",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         37,
         192,
         48
       ],
       "faceCount": 61712,
-      "surfacePercent": 61.81572892049779
+      "surfacePercent": 61.81572892049779,
+      "qwen": {
+        "matched": true,
+        "partId": "part_01",
+        "labelId": 7,
+        "sourceViewSupport": 0.9359370371937545
+      }
     },
     {
       "id": 2,
-      "name": "Leaf crown",
-      "nameSource": "Descriptive display label",
+      "name": "Top green leaves",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         160,
         240,
         16
       ],
       "faceCount": 19917,
-      "surfacePercent": 24.172356120439254
+      "surfacePercent": 24.172356120439254,
+      "qwen": {
+        "matched": true,
+        "partId": "part_02",
+        "labelId": 6,
+        "sourceViewSupport": 0.8565800305774433
+      }
     },
     {
       "id": 3,
-      "name": "Side plate",
-      "nameSource": "Descriptive display label",
+      "name": "Ground strip",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         128,
         192,
         1
       ],
       "faceCount": 4514,
-      "surfacePercent": 6.150969363935195
+      "surfacePercent": 6.150969363935195,
+      "qwen": {
+        "matched": true,
+        "partId": "part_07",
+        "labelId": 5,
+        "sourceViewSupport": 0.9753129145757629
+      }
     },
     {
       "id": 4,
-      "name": "Central fitting",
-      "nameSource": "Descriptive display label",
+      "name": "Black small component",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
       "color": [
         112,
         65,
         64
       ],
       "faceCount": 3585,
-      "surfacePercent": 2.307467434643991
+      "surfacePercent": 2.307467434643991,
+      "qwen": {
+        "matched": true,
+        "partId": "part_06",
+        "labelId": 1,
+        "sourceViewSupport": 0.6889580093312597
+      }
     },
     {
       "id": 5,
-      "name": "Circular fittings A",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 5",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         224,
         62,
         66
       ],
       "faceCount": 3417,
-      "surfacePercent": 2.7931343509402335
+      "surfacePercent": 2.7931343509402335,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 6,
-      "name": "Circular fittings B",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 6",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         212,
         139,
         16
       ],
       "faceCount": 2060,
-      "surfacePercent": 2.4407499122357885
+      "surfacePercent": 2.4407499122357885,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 7,
-      "name": "Body fragment",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 7",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         97,
         211,
         34
       ],
       "faceCount": 106,
-      "surfacePercent": 0.06301689204096321
+      "surfacePercent": 0.06301689204096321,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 9,
-      "name": "Fitting fragments",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 9",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         80,
         173,
         52
       ],
       "faceCount": 412,
-      "surfacePercent": 0.17568337515106489
+      "surfacePercent": 0.17568337515106489,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     },
     {
       "id": 14,
-      "name": "Surface sliver",
-      "nameSource": "Descriptive display label",
+      "name": "Unmatched region 14",
+      "nameSource": "No reliable Qwen correspondence in the source view",
       "color": [
         139,
         158,
         32
       ],
       "faceCount": 174,
-      "surfacePercent": 0.08089363011571983
+      "surfacePercent": 0.08089363011571983,
+      "qwen": {
+        "matched": false,
+        "partId": null,
+        "labelId": null,
+        "sourceViewSupport": null
+      }
     }
   ],
   "partition": "Recorded decoded surface regions from the evaluation export.",
-  "namePolicy": "Display names assigned after inspecting each isolated region and its position in the complete model. Mixed regions and small fragments are named as such. These are not semantic ground-truth labels or VLM proposal IDs.",
-  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the original per-part export."
+  "namePolicy": "Names are copied verbatim from archived Qwen3-VL annotations. Unchanged decoded 3D regions are associated using overlap with the source-view 2D guidance; regions without a reliable association remain unmatched. The association is not semantic ground truth.",
+  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the original per-part export.",
+  "qwenAnnotations": {
+    "schema": "anchorpart.qwen-labels.v1",
+    "modelId": "pineapple",
+    "uid": "580ae02e1dc44207bb8d412e520d674b",
+    "objectName": "Carrot-shaped toy",
+    "source": "Archived Qwen3-VL planning output; retained parts from the final 2D guidance annotation.",
+    "rawResponseSha256": "333828064b2046c6dbf4d3decf6c1e9fbaac85eec7251bc2befc14c3e19ea5c2",
+    "annotationSha256": "e29131478009672c534ee2d71d9f905e2afd0f9ed6b4327c7e8550c2808453dd",
+    "guidanceSha256": "3f1340316ecd3c848876675219894d3c033fb201ab6d97d020f693ab4a363295",
+    "parts": [
+      {
+        "partId": "part_06",
+        "labelId": 1,
+        "name": "Black small component",
+        "color": [
+          229,
+          81,
+          22
+        ]
+      },
+      {
+        "partId": "part_05",
+        "labelId": 2,
+        "name": "Left upper blue circular decoration",
+        "color": [
+          229,
+          140,
+          22
+        ]
+      },
+      {
+        "partId": "part_04",
+        "labelId": 3,
+        "name": "Right blue circular decoration",
+        "color": [
+          229,
+          199,
+          22
+        ]
+      },
+      {
+        "partId": "part_03",
+        "labelId": 4,
+        "name": "Left blue circular decoration",
+        "color": [
+          199,
+          229,
+          22
+        ]
+      },
+      {
+        "partId": "part_07",
+        "labelId": 5,
+        "name": "Ground strip",
+        "color": [
+          140,
+          229,
+          22
+        ]
+      },
+      {
+        "partId": "part_02",
+        "labelId": 6,
+        "name": "Top green leaves",
+        "color": [
+          81,
+          229,
+          22
+        ]
+      },
+      {
+        "partId": "part_01",
+        "labelId": 7,
+        "name": "Main body",
+        "color": [
+          22,
+          229,
+          22
+        ]
+      }
+    ]
+  },
+  "qwenAssociation": {
+    "method": "frozen-source-view-overlap-v1",
+    "minimumVisiblePixels": 32,
+    "minimumSupport": 0.65,
+    "minimumMargin": 0.2,
+    "meshSha256": "cc175bce5f89bcbb645c4aa2472e223d695daf88584cb80fd0ca2a06088937ae",
+    "bindingSha256": "f76a916a85bc02c8a96aec4fdfa27b8eb220cea19ab65ac9bdc150989404abb7",
+    "annotationSha256": "e29131478009672c534ee2d71d9f905e2afd0f9ed6b4327c7e8550c2808453dd",
+    "guidanceSha256": "3f1340316ecd3c848876675219894d3c033fb201ab6d97d020f693ab4a363295",
+    "cameraSha256": "c8f31732c6ffb32bfec6d44ffc82830f6f12c859e48b0f2094238ac179532805",
+    "transformSha256": "7c06b262c9dbcc9d94abc5a8eb5542e0b99adeed0c7e6ce3c4e869d7a07ab316",
+    "projectionAgreementWithArchive": 0.9999765299536466
+  }
 }
