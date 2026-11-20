@@ -90,31 +90,31 @@
     "selection": "Selected qualitative example from the manuscript; not a random sample."
   },
   {
-    "id": "shovel",
-    "label": "Pipe",
-    "uid": "ca778065817340eea6d4ce12061f61d3",
-    "file": "assets/shovel.glb",
-    "image": "assets/shovel.webp",
-    "bytes": 16197544,
-    "sha256": "b661696fe6c654c6f7abb9fd3dcf0685ba450f2db230f385e67235f5484c47a4",
+    "id": "screwdriver",
+    "label": "Screwdriver",
+    "uid": "91c3244d836d4a47bb1ebe0a002af4cc",
+    "file": "assets/screwdriver.glb",
+    "image": "assets/screwdriver.webp",
+    "bytes": 13058172,
+    "sha256": "3ffea732c1536ea9975b578c31afdb90e939d7bdf35d94382cb40399e391ed54",
     "viewRotation": [
       [
-        0.2988362387301197,
-        0.7071067811865476,
-        -0.6408563820557884
+        -0.7041300871854228,
+        0.08144816225585623,
+        0.7053843046066397
       ],
       [
-        0.9063077870366498,
-        5.549534652183771e-17,
-        0.42261826174069944
+        -0.70700948393752,
+        0.011729860289104107,
+        -0.7071067811865475
       ],
       [
-        0.2988362387301199,
-        -0.7071067811865474,
-        -0.6408563820557885
+        -0.06586660718946089,
+        -0.9966085526638541,
+        0.0493252756161326
       ]
     ],
-    "view": "Oblique display view; rotation and uniform framing only.",
+    "view": "Recorded source-view camera; rotation and uniform display framing only.",
     "method": "AnchorPart guidance with SegviGen",
     "source": "Objaverse",
     "selection": "Selected qualitative example from the manuscript; not a random sample."

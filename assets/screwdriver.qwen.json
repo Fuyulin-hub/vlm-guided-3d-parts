@@ -1,0 +1,32 @@
+{
+  "schema": "anchorpart.qwen-labels.v1",
+  "modelId": "screwdriver",
+  "uid": "91c3244d836d4a47bb1ebe0a002af4cc",
+  "objectName": "Screwdriver",
+  "source": "Archived Qwen3-VL planning output; retained parts from the final 2D guidance annotation.",
+  "rawResponseSha256": "347f9922be0de162df7311b8d255aeb1c4ebd41c2f2244bdc18897d15e753b07",
+  "annotationSha256": "ce582af19bb674d3f5bf29fb4245d2ddda27d096d15e09fcf767db12e77aa439",
+  "guidanceSha256": "20297107d6c65726578a73862bb6b78e6417ae3bcaec81ee82b0f3e552a27bd0",
+  "parts": [
+    {
+      "partId": "part_02",
+      "labelId": 1,
+      "name": "Driver tip",
+      "color": [
+        229,
+        81,
+        22
+      ]
+    },
+    {
+      "partId": "part_01",
+      "labelId": 2,
+      "name": "Handle",
+      "color": [
+        229,
+        140,
+        22
+      ]
+    }
+  ]
+}

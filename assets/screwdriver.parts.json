@@ -1,0 +1,98 @@
+{
+  "schema": "anchorpart.parts.v1",
+  "modelId": "screwdriver",
+  "uid": "91c3244d836d4a47bb1ebe0a002af4cc",
+  "meshSha256": "3ffea732c1536ea9975b578c31afdb90e939d7bdf35d94382cb40399e391ed54",
+  "bindingSha256": "288a3056103620bd4658cfcd2b71d16f7513b6f78a5880c1caebcc1ab614723b",
+  "faceCount": 97436,
+  "vertexCount": 56349,
+  "faceLabelsFile": "assets/screwdriver.face-ids.bin",
+  "partCount": 2,
+  "parts": [
+    {
+      "id": 1,
+      "name": "Handle",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
+      "color": [
+        210,
+        177,
+        65
+      ],
+      "faceCount": 75927,
+      "surfacePercent": 85.8730972442659,
+      "qwen": {
+        "matched": true,
+        "partId": "part_01",
+        "labelId": 2,
+        "sourceViewSupport": 0.9790140905392094
+      }
+    },
+    {
+      "id": 2,
+      "name": "Driver tip",
+      "nameSource": "Qwen3-VL annotation \u00b7 source-view association",
+      "color": [
+        225,
+        99,
+        64
+      ],
+      "faceCount": 21509,
+      "surfacePercent": 14.126902755734086,
+      "qwen": {
+        "matched": true,
+        "partId": "part_02",
+        "labelId": 1,
+        "sourceViewSupport": 0.7895713107996702
+      }
+    }
+  ],
+  "partition": "Surface regions reproduced with the pinned evaluation decoder on the unchanged archived output GLB.",
+  "decoderSha256": "53bdda42991c2930cf41b2cec01e5352bcf75b60113fccc3f1d8159388b7372c",
+  "namePolicy": "Names are copied verbatim from archived Qwen3-VL annotations. Unchanged decoded 3D regions are associated using overlap with the source-view 2D guidance; regions without a reliable association remain unmatched. The association is not semantic ground truth.",
+  "binding": "Zero-based mesh face index to little-endian uint16 region ID. Verified triangle-by-triangle against the reproduced per-part export.",
+  "qwenAnnotations": {
+    "schema": "anchorpart.qwen-labels.v1",
+    "modelId": "screwdriver",
+    "uid": "91c3244d836d4a47bb1ebe0a002af4cc",
+    "objectName": "Screwdriver",
+    "source": "Archived Qwen3-VL planning output; retained parts from the final 2D guidance annotation.",
+    "rawResponseSha256": "347f9922be0de162df7311b8d255aeb1c4ebd41c2f2244bdc18897d15e753b07",
+    "annotationSha256": "ce582af19bb674d3f5bf29fb4245d2ddda27d096d15e09fcf767db12e77aa439",
+    "guidanceSha256": "20297107d6c65726578a73862bb6b78e6417ae3bcaec81ee82b0f3e552a27bd0",
+    "parts": [
+      {
+        "partId": "part_02",
+        "labelId": 1,
+        "name": "Driver tip",
+        "color": [
+          229,
+          81,
+          22
+        ]
+      },
+      {
+        "partId": "part_01",
+        "labelId": 2,
+        "name": "Handle",
+        "color": [
+          229,
+          140,
+          22
+        ]
+      }
+    ]
+  },
+  "qwenAssociation": {
+    "method": "frozen-source-view-overlap-v1",
+    "minimumVisiblePixels": 32,
+    "minimumSupport": 0.65,
+    "minimumMargin": 0.2,
+    "meshSha256": "3ffea732c1536ea9975b578c31afdb90e939d7bdf35d94382cb40399e391ed54",
+    "bindingSha256": "288a3056103620bd4658cfcd2b71d16f7513b6f78a5880c1caebcc1ab614723b",
+    "annotationSha256": "ce582af19bb674d3f5bf29fb4245d2ddda27d096d15e09fcf767db12e77aa439",
+    "guidanceSha256": "20297107d6c65726578a73862bb6b78e6417ae3bcaec81ee82b0f3e552a27bd0",
+    "cameraSha256": "a5559734e9e470b60d89fa9219e447f5cdd8faac4ec4d2943d49cd1534ae21ce",
+    "transformSha256": "61209f396c7bc0b1e1047de2ee6c9c4879a7620b9bef0ffe75e5c9cd7d7f39ea",
+    "projectionAgreementWithArchive": null
+  }
+}

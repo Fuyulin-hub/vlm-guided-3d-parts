@@ -12,9 +12,9 @@ const emptyPanel = document.querySelector('#inspector-empty');
 const isolate = document.querySelector('#isolate');
 const clearSelection = document.querySelector('#clear-selection');
 const tooltip = document.querySelector('#part-tooltip');
-const sizes = {pineapple:18,tractor:20,faucet:19,shovel:19};
+const sizes = {pineapple:18,tractor:20,faucet:19,screwdriver:18};
 let selected = 'pineapple', viewer, activeRequest = 0, initialized = false;
-const modelData = fetch('assets/models.json?v=qwen-1').then(response => {
+const modelData = fetch('assets/models.json?v=screwdriver-1').then(response => {
   if (!response.ok) throw new Error('Model list unavailable');
   return response.json();
 }).then(models => {
@@ -125,7 +125,7 @@ async function loadSelected() {
     const metadata = (await modelData).find(entry => entry.id === model);
     if (request !== activeRequest) return;
     const [detailsResponse,labelsResponse] = await Promise.all([
-      fetch(`assets/${model}.parts.json?v=qwen-1`),fetch(`assets/${model}.face-ids.bin`)
+      fetch(`assets/${model}.parts.json?v=screwdriver-1`),fetch(`assets/${model}.face-ids.bin`)
     ]);
     if (!detailsResponse.ok || !labelsResponse.ok) throw new Error('Part details could not be loaded');
     const details = await detailsResponse.json();
